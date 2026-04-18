@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IronForge | Exercise Library</title>
+<link rel="stylesheet" href="exercise-library.css">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- ===== SIDEBAR ===== -->
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-logo"><a href="index.html" class="logo">IRON<span>FORGE</span></a></div>
+  <nav class="sidebar-nav">
+    <div class="nav-section-label">MAIN</div>
+    <a href="dashboard.html" class="nav-item"><span class="nav-icon">📊</span><span class="nav-label">Dashboard</span></a>
+    <a href="activity-log.html" class="nav-item"><span class="nav-icon">📋</span><span class="nav-label">Activity Log</span></a>
+    <a href="workout-builder.html" class="nav-item"><span class="nav-icon">🏋️</span><span class="nav-label">Workout Builder</span></a>
+    <a href="exercise-library.html" class="nav-item active"><span class="nav-icon">📚</span><span class="nav-label">Exercise Library</span></a>
+    <div class="nav-section-label">HEALTH</div>
+    <a href="nutrition-tracker.html" class="nav-item"><span class="nav-icon">🥗</span><span class="nav-label">Nutrition</span></a>
+    <a href="progress-chart.html" class="nav-item"><span class="nav-icon">📈</span><span class="nav-label">Progress</span></a>
+    <div class="nav-section-label">COMMUNITY</div>
+    <a href="community-feed.html" class="nav-item"><span class="nav-icon">👥</span><span class="nav-label">Community</span></a>
+    <a href="leaderboard.html" class="nav-item"><span class="nav-icon">🏆</span><span class="nav-label">Leaderboard</span></a>
+    <a href="achievement-badges.html" class="nav-item"><span class="nav-icon">🎖️</span><span class="nav-label">Achievements</span><span class="nav-badge">3</span></a>
+    <div class="nav-section-label">ACCOUNT</div>
+    <a href="settings-profile.html" class="nav-item"><span class="nav-icon">⚙️</span><span class="nav-label">Settings</span></a>
+    <a href="help-center.html" class="nav-item"><span class="nav-icon">❓</span><span class="nav-label">Help</span></a>
+  </nav>
+  <div class="sidebar-plan">
+    <div class="plan-badge">⚡ PRO MEMBER</div>
+    <p>21 days remaining</p>
+    <a href="membership-plans.html" class="btn-renew">Renew Plan</a>
+  </div>
+</aside>
+
+<!-- MOBILE TOPBAR -->
+<div class="mobile-topbar">
+  <button class="hamburger-dash" onclick="toggleSidebar()">☰</button>
+  <span class="logo">IRON<span>FORGE</span></span>
+  <div class="topbar-avatar">M</div>
+</div>
+<div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleSidebar()"></div>
+
+<!-- ===== MAIN ===== -->
+<main class="main-content">
+
+  <!-- TOPBAR -->
+  <header class="topbar">
+    <div class="topbar-left">
+      <h1>Exercise <span>Library</span></h1>
+      <p>60+ exercises with full technique guides</p>
+    </div>
+    <div class="topbar-right">
+      <div class="search-wrap">
+        <span class="search-icon">🔍</span>
+        <input type="text" class="search-input" id="searchInput" placeholder="Search exercises..." oninput="applyFilters()">
+      </div>
+      <div class="avatar-wrap"><div class="avatar">M</div><div class="avatar-status"></div></div>
+    </div>
+  </header>
+
+  <!-- FILTER BAR -->
+  <div class="filter-bar">
+    <div class="filter-row">
+      <div class="filter-group">
+        <span class="filter-label">MUSCLE</span>
+        <div class="filter-chips" id="muscleChips">
+          <button class="chip active" data-muscle="all">All</button>
+          <button class="chip" data-muscle="chest">Chest</button>
+          <button class="chip" data-muscle="back">Back</button>
+          <button class="chip" data-muscle="shoulders">Shoulders</button>
+          <button class="chip" data-muscle="arms">Arms</button>
+          <button class="chip" data-muscle="legs">Legs</button>
+          <button class="chip" data-muscle="core">Core</button>
+          <button class="chip" data-muscle="cardio">Cardio</button>
+          <button class="chip" data-muscle="full">Full Body</button>
+        </div>
+      </div>
+      <div class="filter-group">
+        <span class="filter-label">EQUIPMENT</span>
+        <div class="filter-chips" id="equipChips">
+          <button class="chip eq active" data-equip="all">All</button>
+          <button class="chip eq" data-equip="barbell">Barbell</button>
+          <button class="chip eq" data-equip="dumbbell">Dumbbell</button>
+          <button class="chip eq" data-equip="machine">Machine</button>
+          <button class="chip eq" data-equip="cable">Cable</button>
+          <button class="chip eq" data-equip="bodyweight">Bodyweight</button>
+        </div>
+      </div>
+      <div class="filter-group">
+        <span class="filter-label">LEVEL</span>
+        <div class="filter-chips" id="levelChips">
+          <button class="chip lv active" data-level="all">All</button>
+          <button class="chip lv" data-level="beginner">Beginner</button>
+          <button class="chip lv" data-level="intermediate">Intermediate</button>
+          <button class="chip lv" data-level="advanced">Advanced</button>
+        </div>
+      </div>
+    </div>
+    <div class="results-count" id="resultsCount">60 exercises</div>
+  </div>
+
+  <!-- GRID -->
+  <div class="library-grid" id="libraryGrid"></div>
+
+</main>
+
+<!-- ===== EXERCISE DETAIL MODAL ===== -->
+<div class="modal-overlay" id="modalOverlay" onclick="closeModal()">
+  <div class="modal" onclick="event.stopPropagation()">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div class="modal-hero">
+      <div class="modal-ex-icon" id="modalIcon"></div>
+      <div class="modal-ex-info">
+        <div class="modal-badges" id="modalBadges"></div>
+        <h2 id="modalName"></h2>
+        <p id="modalMuscle"></p>
+      </div>
+    </div>
+    <div class="modal-body">
+      <div class="modal-stats" id="modalStats"></div>
+      <div class="modal-section">
+        <h4>🎯 Target Muscles</h4>
+        <p id="modalTargets"></p>
+      </div>
+      <div class="modal-section">
+        <h4>📋 How To Perform</h4>
+        <ol id="modalSteps" class="steps-list"></ol>
+      </div>
+      <div class="modal-section">
+        <h4>💡 Pro Tips</h4>
+        <ul id="modalTips" class="tips-list"></ul>
+      </div>
+      <div class="modal-section">
+        <h4>⚠️ Common Mistakes</h4>
+        <ul id="modalMistakes" class="mistakes-list"></ul>
+      </div>
+      <div class="modal-actions">
+        <button class="btn-add-to-workout" onclick="addToWorkoutFromLib()">🏋️ Add to Workout Builder</button>
+        <button class="btn-favourite" id="favBtn" onclick="toggleFavourite()">🤍 Save</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<script src="exercise-library.js"></script>
+</body>
+</html>

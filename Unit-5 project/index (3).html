@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CineLux – Premium Cinema Experience</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+<body>
+
+  <!-- PRELOADER -->
+  <div id="preloader">
+    <div class="preloader-inner">
+      <div class="film-reel">
+        <i class="fas fa-film"></i>
+      </div>
+      <div class="preloader-text">CINELUX</div>
+      <div class="preloader-bar"><div class="preloader-fill"></div></div>
+    </div>
+  </div>
+
+  <!-- NAVBAR -->
+  <nav id="navbar">
+    <div class="nav-logo">
+      <span class="logo-icon"><i class="fas fa-film"></i></span>
+      <span class="logo-text">CINE<span class="gold">LUX</span></span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#home" class="nav-link active" data-page="home">Home</a></li>
+      <li><a href="#booking" class="nav-link" data-page="booking">Book Seats</a></li>
+      <li><a href="#snacks" class="nav-link" data-page="snacks">Snacks</a></li>
+      <li><a href="#dashboard" class="nav-link" data-page="dashboard">Dashboard</a></li>
+    </ul>
+    <div class="nav-actions">
+      <div class="reward-badge" id="navRewardBadge">
+        <i class="fas fa-star"></i>
+        <span id="navPoints">1250</span> pts
+      </div>
+      <button class="nav-btn">Sign In</button>
+      <div class="hamburger" id="hamburger">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#home" class="mob-link" data-page="home">Home</a>
+    <a href="#booking" class="mob-link" data-page="booking">Book Seats</a>
+    <a href="#snacks" class="mob-link" data-page="snacks">Snacks</a>
+    <a href="#dashboard" class="mob-link" data-page="dashboard">Dashboard</a>
+  </div>
+
+  <!-- ========== PAGE: HOME ========== -->
+  <section id="home" class="page active">
+
+    <!-- HERO -->
+    <div class="hero">
+      <div class="hero-bg">
+        <div class="hero-overlay"></div>
+        <div class="hero-stars" id="heroStars"></div>
+        <div class="hero-spotlight s1"></div>
+        <div class="hero-spotlight s2"></div>
+      </div>
+      <div class="hero-content">
+        <div class="hero-badge"><i class="fas fa-crown"></i> Premium Experience</div>
+        <h1 class="hero-title">
+          Where Cinema<br><span class="gold-text">Meets Luxury</span>
+        </h1>
+        <p class="hero-sub">Immerse yourself in the finest cinematic experience. Book tickets, choose your seats, and indulge in exclusive snacks.</p>
+        <div class="hero-btns">
+          <button class="btn-primary" onclick="navigateTo('booking')">
+            <i class="fas fa-ticket-alt"></i> Book Now
+          </button>
+          <button class="btn-secondary" onclick="document.getElementById('moviesSection').scrollIntoView({behavior:'smooth'})">
+            <i class="fas fa-play"></i> Explore Movies
+          </button>
+        </div>
+        <div class="hero-stats">
+          <div class="stat"><span class="stat-num">500+</span><span class="stat-label">Movies</span></div>
+          <div class="stat-divider"></div>
+          <div class="stat"><span class="stat-num">12</span><span class="stat-label">Screens</span></div>
+          <div class="stat-divider"></div>
+          <div class="stat"><span class="stat-num">4K</span><span class="stat-label">Ultra HD</span></div>
+        </div>
+      </div>
+      <div class="hero-scroll-indicator">
+        <div class="scroll-dot"></div>
+        <span>Scroll to Explore</span>
+      </div>
+    </div>
+
+    <!-- VOICE SEARCH + FILTERS -->
+    <div id="moviesSection" class="movies-section">
+      <div class="section-header">
+        <div class="section-title-wrap">
+          <h2 class="section-title">Now <span class="gold">Showing</span></h2>
+          <p class="section-sub">Discover your next favourite film</p>
+        </div>
+        <div class="search-voice-wrap">
+          <div class="search-box">
+            <i class="fas fa-search"></i>
+            <input type="text" id="searchInput" placeholder="Search movies..." autocomplete="off"/>
+            <button class="voice-btn" id="voiceBtn" title="Voice Search">
+              <i class="fas fa-microphone" id="voiceIcon"></i>
+            </button>
+          </div>
+          <div class="voice-status" id="voiceStatus"></div>
+        </div>
+      </div>
+
+      <!-- FILTERS -->
+      <div class="filters-bar">
+        <div class="filter-group">
+          <label><i class="fas fa-theater-masks"></i> Genre</label>
+          <select id="genreFilter" class="filter-select">
+            <option value="all">All Genres</option>
+            <option value="Action">Action</option>
+            <option value="Comedy">Comedy</option>
+            <option value="Horror">Horror</option>
+            <option value="Thriller">Thriller</option>
+            <option value="Romance">Romance</option>
+            <option value="Sci-Fi">Sci-Fi</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <label><i class="fas fa-language"></i> Language</label>
+          <select id="langFilter" class="filter-select">
+            <option value="all">All Languages</option>
+            <option value="Tamil">Tamil</option>
+            <option value="English">English</option>
+            <option value="Hindi">Hindi</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <label><i class="fas fa-clock"></i> Duration</label>
+          <select id="durationFilter" class="filter-select">
+            <option value="all">Any Duration</option>
+            <option value="short">Short (&lt; 2h)</option>
+            <option value="long">Long (2h+)</option>
+          </select>
+        </div>
+        <button class="btn-reset" id="resetFilters">
+          <i class="fas fa-redo"></i> Reset
+        </button>
+      </div>
+
+      <!-- MOVIE GRID -->
+      <div class="movies-grid" id="moviesGrid"></div>
+      <div class="no-results" id="noResults" style="display:none;">
+        <i class="fas fa-film"></i>
+        <p>No movies match your search. Try different filters.</p>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ========== PAGE: BOOKING ========== -->
+  <section id="booking" class="page">
+    <div class="page-hero booking-hero">
+      <div class="page-hero-overlay"></div>
+      <div class="page-hero-content">
+        <h1>Select Your <span class="gold">Seats</span></h1>
+        <p>Choose the perfect spot for your premium experience</p>
+      </div>
+    </div>
+
+    <div class="booking-wrapper">
+
+      <!-- MOVIE SELECTOR -->
+      <div class="booking-movie-select">
+        <label class="booking-label"><i class="fas fa-film"></i> Select Movie</label>
+        <div class="movie-chips" id="movieChips"></div>
+      </div>
+
+      <!-- SHOW TIME SELECTOR -->
+      <div class="showtime-select">
+        <label class="booking-label"><i class="fas fa-clock"></i> Select Show</label>
+        <div class="time-chips">
+          <button class="time-chip active">10:00 AM</button>
+          <button class="time-chip">1:30 PM</button>
+          <button class="time-chip">4:45 PM</button>
+          <button class="time-chip">7:00 PM</button>
+          <button class="time-chip">10:15 PM</button>
+        </div>
+      </div>
+
+      <!-- SCREEN -->
+      <div class="screen-container">
+        <div class="screen-glow"></div>
+        <div class="screen-label">
+          <div class="screen-line"></div>
+          <span>SCREEN</span>
+          <div class="screen-line"></div>
+        </div>
+      </div>
+
+      <!-- SEAT MAP -->
+      <div class="seat-legend">
+        <div class="legend-item"><div class="legend-box available"></div> Available</div>
+        <div class="legend-item"><div class="legend-box selected"></div> Selected</div>
+        <div class="legend-item"><div class="legend-box booked"></div> Booked</div>
+      </div>
+
+      <div class="seat-map" id="seatMap"></div>
+
+      <!-- BOOKING SUMMARY -->
+      <div class="booking-summary" id="bookingSummary">
+        <div class="summary-card">
+          <h3><i class="fas fa-ticket-alt"></i> Booking Summary</h3>
+          <div class="summary-row">
+            <span>Selected Seats:</span>
+            <span id="selectedSeatsDisplay">None</span>
+          </div>
+          <div class="summary-row">
+            <span>Seat Count:</span>
+            <span id="seatCount">0</span>
+          </div>
+          <div class="summary-row">
+            <span>Price per Seat:</span>
+            <span>₹350</span>
+          </div>
+          <div class="summary-divider"></div>
+          <div class="summary-row total">
+            <span>Total Amount:</span>
+            <span id="seatTotal">₹0</span>
+          </div>
+          <button class="btn-primary full-width" id="proceedSnacks" onclick="navigateTo('snacks')">
+            <i class="fas fa-utensils"></i> Add Snacks & Proceed
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========== PAGE: SNACKS ========== -->
+  <section id="snacks" class="page">
+    <div class="page-hero snacks-hero">
+      <div class="page-hero-overlay"></div>
+      <div class="page-hero-content">
+        <h1>Build Your <span class="gold">Snack Combo</span></h1>
+        <p>Elevate your movie experience with premium snacks</p>
+      </div>
+    </div>
+
+    <div class="snacks-wrapper">
+      <div class="snacks-categories">
+
+        <!-- POPCORN -->
+        <div class="snack-category">
+          <h3 class="category-title"><i class="fas fa-seedling"></i> Popcorn</h3>
+          <div class="snack-grid" id="popcornGrid"></div>
+        </div>
+
+        <!-- DRINKS -->
+        <div class="snack-category">
+          <h3 class="category-title"><i class="fas fa-glass-cheers"></i> Drinks</h3>
+          <div class="snack-grid" id="drinksGrid"></div>
+        </div>
+
+        <!-- BITES -->
+        <div class="snack-category">
+          <h3 class="category-title"><i class="fas fa-cookie-bite"></i> Bites & Sides</h3>
+          <div class="snack-grid" id="bitesGrid"></div>
+        </div>
+
+      </div>
+
+      <!-- SNACK CART -->
+      <div class="snack-cart">
+        <div class="cart-card">
+          <h3><i class="fas fa-shopping-bag"></i> Your Order</h3>
+          <div class="cart-items" id="cartItems">
+            <p class="cart-empty">Your cart is empty</p>
+          </div>
+          <div class="cart-divider"></div>
+          <div class="cart-totals">
+            <div class="cart-row">
+              <span>Snacks Total:</span>
+              <span id="snacksTotal">₹0</span>
+            </div>
+            <div class="cart-row">
+              <span>Seats Total:</span>
+              <span id="cartSeatsTotal">₹0</span>
+            </div>
+            <div class="cart-divider"></div>
+            <div class="cart-row grand-total">
+              <span>Grand Total:</span>
+              <span id="grandTotal">₹0</span>
+            </div>
+          </div>
+          <button class="btn-primary full-width" id="confirmBooking" onclick="confirmBooking()">
+            <i class="fas fa-check-circle"></i> Confirm Booking
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PAGE: DASHBOARD ========== -->
+  <section id="dashboard" class="page">
+    <div class="page-hero dash-hero">
+      <div class="page-hero-overlay"></div>
+      <div class="page-hero-content">
+        <h1>Your <span class="gold">Dashboard</span></h1>
+        <p>Track bookings, rewards, and achievements</p>
+      </div>
+    </div>
+
+    <div class="dashboard-wrapper">
+
+      <!-- PROFILE CARD -->
+      <div class="profile-card">
+        <div class="profile-avatar">
+          <i class="fas fa-user-circle"></i>
+          <div class="profile-badge"><i class="fas fa-crown"></i></div>
+        </div>
+        <div class="profile-info">
+          <h3>Alex Cinephile</h3>
+          <p class="profile-tier"><i class="fas fa-star"></i> Gold Member</p>
+          <p class="profile-since">Member since 2023</p>
+        </div>
+        <div class="profile-stats">
+          <div class="ps"><span class="ps-num" id="totalBookings">0</span><span class="ps-label">Bookings</span></div>
+          <div class="ps"><span class="ps-num" id="totalMovies">0</span><span class="ps-label">Movies</span></div>
+          <div class="ps"><span class="ps-num" id="totalSpent">₹0</span><span class="ps-label">Spent</span></div>
+        </div>
+      </div>
+
+      <!-- REWARDS -->
+      <div class="rewards-card">
+        <div class="rewards-header">
+          <h3><i class="fas fa-trophy"></i> Reward Points</h3>
+          <span class="reward-tier-badge">GOLD</span>
+        </div>
+        <div class="points-display">
+          <div class="points-circle">
+            <svg viewBox="0 0 120 120">
+              <circle cx="60" cy="60" r="54" class="points-track"/>
+              <circle cx="60" cy="60" r="54" class="points-fill" id="pointsArc"/>
+            </svg>
+            <div class="points-inner">
+              <span class="points-num" id="pointsDisplay">0</span>
+              <span class="points-label">pts</span>
+            </div>
+          </div>
+          <div class="points-details">
+            <div class="pd-row">
+              <span>Total Earned</span><span class="gold" id="totalEarned">0 pts</span>
+            </div>
+            <div class="pd-row">
+              <span>Redeemed</span><span id="redeemed">0 pts</span>
+            </div>
+            <div class="pd-row">
+              <span>Next Tier</span><span class="gold">Platinum at 5000</span>
+            </div>
+            <div class="tier-bar-wrap">
+              <div class="tier-bar"><div class="tier-fill" id="tierFill"></div></div>
+              <span id="tierPct">0%</span>
+            </div>
+          </div>
+        </div>
+        <div class="badges-row">
+          <div class="badge-item earned"><i class="fas fa-film"></i><span>Cinephile</span></div>
+          <div class="badge-item earned"><i class="fas fa-star"></i><span>Gold Star</span></div>
+          <div class="badge-item"><i class="fas fa-gem"></i><span>Diamond</span></div>
+          <div class="badge-item"><i class="fas fa-infinity"></i><span>Legend</span></div>
+        </div>
+      </div>
+
+      <!-- BOOKING PROGRESS -->
+      <div class="progress-card">
+        <h3><i class="fas fa-map-signs"></i> Current Booking Status</h3>
+        <div class="progress-tracker" id="progressTracker">
+          <div class="progress-line">
+            <div class="progress-fill" id="progressFill"></div>
+          </div>
+          <div class="progress-steps">
+            <div class="prog-step active" data-step="0">
+              <div class="step-icon"><i class="fas fa-check-circle"></i></div>
+              <span>Confirmed</span>
+            </div>
+            <div class="prog-step" data-step="1">
+              <div class="step-icon"><i class="fas fa-play-circle"></i></div>
+              <span>Starting</span>
+            </div>
+            <div class="prog-step" data-step="2">
+              <div class="step-icon"><i class="fas fa-coffee"></i></div>
+              <span>Interval</span>
+            </div>
+            <div class="prog-step" data-step="3">
+              <div class="step-icon"><i class="fas fa-flag-checkered"></i></div>
+              <span>Completed</span>
+            </div>
+          </div>
+        </div>
+        <div class="booking-detail-card" id="bookingDetailCard">
+          <p class="no-booking-msg">No active booking. Book a movie to see progress here!</p>
+        </div>
+        <button class="btn-secondary" id="simulateProgress" onclick="simulateProgress()">
+          <i class="fas fa-play"></i> Simulate Progress
+        </button>
+      </div>
+
+      <!-- BOOKING HISTORY -->
+      <div class="history-card">
+        <h3><i class="fas fa-history"></i> Booking History</h3>
+        <div class="history-list" id="historyList">
+          <p class="no-history">No bookings yet. Your history will appear here.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========== TRAILER MODAL ========== -->
+  <div class="modal-overlay" id="trailerModal">
+    <div class="modal-box">
+      <button class="modal-close" id="modalClose"><i class="fas fa-times"></i></button>
+      <div class="modal-movie-info" id="modalMovieInfo"></div>
+      <div class="modal-video-wrap">
+        <iframe id="trailerIframe" src="" allow="autoplay; fullscreen" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOAST NOTIFICATION -->
+  <div class="toast" id="toast"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>

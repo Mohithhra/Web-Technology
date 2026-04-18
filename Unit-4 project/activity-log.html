@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IronForge | Activity Log</title>
+<link rel="stylesheet" href="activity-log.css">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- ===== SIDEBAR ===== -->
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-logo">
+    <a href="index.html" class="logo">IRON<span>FORGE</span></a>
+  </div>
+  <nav class="sidebar-nav">
+    <div class="nav-section-label">MAIN</div>
+    <a href="dashboard.html" class="nav-item"><span class="nav-icon">📊</span><span class="nav-label">Dashboard</span></a>
+    <a href="activity-log.html" class="nav-item active"><span class="nav-icon">📋</span><span class="nav-label">Activity Log</span></a>
+    <a href="workout-builder.html" class="nav-item"><span class="nav-icon">🏋️</span><span class="nav-label">Workout Builder</span></a>
+    <a href="exercise-library.html" class="nav-item"><span class="nav-icon">📚</span><span class="nav-label">Exercise Library</span></a>
+    <div class="nav-section-label">HEALTH</div>
+    <a href="nutrition-tracker.html" class="nav-item"><span class="nav-icon">🥗</span><span class="nav-label">Nutrition</span></a>
+    <a href="progress-chart.html" class="nav-item"><span class="nav-icon">📈</span><span class="nav-label">Progress</span></a>
+    <div class="nav-section-label">COMMUNITY</div>
+    <a href="community-feed.html" class="nav-item"><span class="nav-icon">👥</span><span class="nav-label">Community</span></a>
+    <a href="leaderboard.html" class="nav-item"><span class="nav-icon">🏆</span><span class="nav-label">Leaderboard</span></a>
+    <a href="achievement-badges.html" class="nav-item"><span class="nav-icon">🎖️</span><span class="nav-label">Achievements</span><span class="nav-badge">3</span></a>
+    <div class="nav-section-label">ACCOUNT</div>
+    <a href="settings-profile.html" class="nav-item"><span class="nav-icon">⚙️</span><span class="nav-label">Settings</span></a>
+    <a href="help-center.html" class="nav-item"><span class="nav-icon">❓</span><span class="nav-label">Help</span></a>
+  </nav>
+  <div class="sidebar-plan">
+    <div class="plan-badge">⚡ PRO MEMBER</div>
+    <p>21 days remaining</p>
+    <a href="membership-plans.html" class="btn-renew">Renew Plan</a>
+  </div>
+</aside>
+
+<!-- ===== MOBILE TOPBAR ===== -->
+<div class="mobile-topbar">
+  <button class="hamburger-dash" onclick="toggleSidebar()">☰</button>
+  <span class="logo">IRON<span>FORGE</span></span>
+  <div class="topbar-avatar">M</div>
+</div>
+<div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleSidebar()"></div>
+
+<!-- ===== MAIN ===== -->
+<main class="main-content">
+
+  <!-- TOPBAR -->
+  <header class="topbar">
+    <div class="topbar-left">
+      <h1>Activity <span>Log</span></h1>
+      <p>Your complete workout history</p>
+    </div>
+    <div class="topbar-right">
+      <button class="topbar-btn" onclick="openLogModal()">+ Log Workout</button>
+      <div class="avatar-wrap">
+        <div class="avatar">M</div>
+        <div class="avatar-status"></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- SUMMARY STATS -->
+  <div class="stats-grid">
+    <div class="stat-card">
+      <div class="stat-icon fire">🔥</div>
+      <div class="stat-body"><div class="stat-num" data-target="47">0</div><div class="stat-label">Total Sessions</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon gold">⏱️</div>
+      <div class="stat-body"><div class="stat-num" data-target="38">0</div><div class="stat-label">Hours Trained</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon green">🔥</div>
+      <div class="stat-body"><div class="stat-num" data-target="18640">0</div><div class="stat-label">Total Calories</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon blue">📅</div>
+      <div class="stat-body"><div class="stat-num" data-target="12">0</div><div class="stat-label">Day Streak</div></div>
+    </div>
+  </div>
+
+  <!-- FILTERS -->
+  <div class="filters-bar">
+    <div class="filter-left">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="strength">💪 Strength</button>
+      <button class="filter-btn" data-filter="cardio">⚡ Cardio</button>
+      <button class="filter-btn" data-filter="combat">🥊 Combat</button>
+      <button class="filter-btn" data-filter="wellness">🧘 Wellness</button>
+    </div>
+    <div class="filter-right">
+      <select class="sort-select" id="sortSelect" onchange="renderLog()">
+        <option value="newest">Newest First</option>
+        <option value="oldest">Oldest First</option>
+        <option value="calories">Most Calories</option>
+        <option value="duration">Longest Session</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- ACTIVITY LOG -->
+  <div class="log-container">
+    <div class="log-list" id="logList"></div>
+  </div>
+
+</main>
+
+<!-- ===== LOG WORKOUT MODAL ===== -->
+<div class="modal-overlay" id="modalOverlay" onclick="closeModal()">
+  <div class="modal" onclick="event.stopPropagation()">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div class="modal-header">
+      <h3>Log a Workout</h3>
+      <p>Record your session details</p>
+    </div>
+    <div class="modal-body">
+      <div class="input-group">
+        <label>Workout Name</label>
+        <input type="text" id="logName" class="modal-input" placeholder="e.g. Upper Body Strength">
+      </div>
+      <div class="input-row">
+        <div class="input-group">
+          <label>Type</label>
+          <select id="logType" class="modal-input modal-select">
+            <option value="strength">💪 Strength</option>
+            <option value="cardio">⚡ Cardio</option>
+            <option value="combat">🥊 Combat</option>
+            <option value="wellness">🧘 Wellness</option>
+          </select>
+        </div>
+        <div class="input-group">
+          <label>Duration (min)</label>
+          <input type="number" id="logDuration" class="modal-input" placeholder="60" min="1" max="300">
+        </div>
+      </div>
+      <div class="input-row">
+        <div class="input-group">
+          <label>Calories Burned</label>
+          <input type="number" id="logCalories" class="modal-input" placeholder="420" min="0">
+        </div>
+        <div class="input-group">
+          <label>Trainer / Class</label>
+          <input type="text" id="logTrainer" class="modal-input" placeholder="e.g. Arjun Sharma">
+        </div>
+      </div>
+      <div class="input-group">
+        <label>Notes</label>
+        <textarea id="logNotes" class="modal-input modal-textarea" placeholder="How did it go? Any PRs?"></textarea>
+      </div>
+      <div class="mood-row">
+        <label>Post-workout mood</label>
+        <div class="mood-btns">
+          <button class="mood-btn active" data-mood="💪">💪 Strong</button>
+          <button class="mood-btn" data-mood="😤">😤 Crushed it</button>
+          <button class="mood-btn" data-mood="😅">😅 Tough</button>
+          <button class="mood-btn" data-mood="😴">😴 Tired</button>
+        </div>
+      </div>
+      <button class="btn-confirm" onclick="saveLog()">✅ Save Session</button>
+    </div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<script src="activity-log.js"></script>
+</body>
+</html>

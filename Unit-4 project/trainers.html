@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IronForge Gym | Elite Trainers</title>
+<link rel="stylesheet" href="trainers.css">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<nav class="navbar" id="navbar">
+  <a href="index.html" class="nav-logo">IRON<span>FORGE</span></a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="trainers.html" class="active">Trainers</a></li>
+    <li><a href="schedule.html">Schedule</a></li>
+    <li><a href="online-classes.html">Online Classes</a></li>
+    <li><a href="membership-plans.html">Plans</a></li>
+  </ul>
+  <div class="nav-cta">
+    <a href="login.html" class="btn-nav-login">Login</a>
+    <a href="join-modal.html" class="btn-nav-join">Join Now</a>
+  </div>
+  <button class="hamburger" onclick="toggleMenu()">☰</button>
+</nav>
+
+<!-- ===== HERO ===== -->
+<section class="trainers-hero">
+  <div class="hero-bg">
+    <div class="hero-grid"></div>
+    <div class="hero-glow"></div>
+  </div>
+  <div class="trainers-hero-content">
+    <span class="section-tag reveal">ELITE COACHING STAFF</span>
+    <h1 class="reveal">TRAINED BY<br><span>THE BEST.</span><br>BECOME<br><span class="white">THE BEST.</span></h1>
+    <p class="reveal">Our coaches aren't just trainers — they're athletes, scientists and life-changers. Each one hand-picked for their expertise, passion and proven results.</p>
+    <div class="hero-stats reveal">
+      <div class="hstat"><span class="hstat-num">20+</span><span class="hstat-label">Elite Trainers</span></div>
+      <div class="hstat-sep"></div>
+      <div class="hstat"><span class="hstat-num">50+</span><span class="hstat-label">Certifications</span></div>
+      <div class="hstat-sep"></div>
+      <div class="hstat"><span class="hstat-num">1000+</span><span class="hstat-label">Lives Changed</span></div>
+    </div>
+  </div>
+  <div class="hero-scroll-hint">
+    <span>SCROLL</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- ===== FILTER BAR ===== -->
+<div class="filter-bar">
+  <div class="filter-inner">
+    <span class="filter-label">FILTER BY SPECIALTY:</span>
+    <div class="filter-btns">
+      <button class="filter-btn active" data-filter="all">All Trainers</button>
+      <button class="filter-btn" data-filter="strength">Strength</button>
+      <button class="filter-btn" data-filter="cardio">Cardio & HIIT</button>
+      <button class="filter-btn" data-filter="combat">Boxing & MMA</button>
+      <button class="filter-btn" data-filter="wellness">Yoga & Wellness</button>
+      <button class="filter-btn" data-filter="nutrition">Nutrition</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===== TRAINERS GRID ===== -->
+<section class="trainers-section">
+  <div class="container">
+    <div class="trainers-grid" id="trainersGrid">
+
+      <!-- Trainer 1 -->
+      <div class="trainer-card reveal" data-category="strength">
+        <div class="trainer-top">
+          <div class="trainer-avatar">👨‍🦱</div>
+          <div class="trainer-badge">HEAD COACH</div>
+        </div>
+        <div class="trainer-body">
+          <h3>Arjun Sharma</h3>
+          <p class="trainer-role">Strength & Conditioning</p>
+          <p class="trainer-exp">⭐ 8 Years · NSCA-CSCS Certified</p>
+          <p class="trainer-bio">Former national powerlifter and IronForge founder. Arjun has coached over 200 athletes to their personal bests and national competitions.</p>
+          <div class="trainer-specialties">
+            <span>Powerlifting</span><span>HIIT</span><span>Sports Performance</span><span>Olympic Lifting</span>
+          </div>
+          <div class="trainer-stats">
+            <div class="t-stat"><span class="t-num">200+</span><span class="t-label">Athletes Coached</span></div>
+            <div class="t-stat"><span class="t-num">8</span><span class="t-label">Yrs Experience</span></div>
+            <div class="t-stat"><span class="t-num">4.9★</span><span class="t-label">Rating</span></div>
+          </div>
+          <button class="btn-book" onclick="openModal('arjun')">Book a Session</button>
+        </div>
+      </div>
+
+      <!-- Trainer 2 -->
+      <div class="trainer-card reveal" data-category="wellness">
+        <div class="trainer-top">
+          <div class="trainer-avatar">👩</div>
+          <div class="trainer-badge wellness">WELLNESS LEAD</div>
+        </div>
+        <div class="trainer-body">
+          <h3>Priya Nair</h3>
+          <p class="trainer-role">Yoga & Wellness Coach</p>
+          <p class="trainer-exp">⭐ 6 Years · RYT-500 Certified</p>
+          <p class="trainer-bio">A registered yoga teacher with advanced training in restorative practices, mindfulness and injury rehabilitation. Priya's sessions transform both body and mind.</p>
+          <div class="trainer-specialties">
+            <span>Yoga</span><span>Meditation</span><span>Mobility</span><span>Injury Rehab</span>
+          </div>
+          <div class="trainer-stats">
+            <div class="t-stat"><span class="t-num">150+</span><span class="t-label">Students</span></div>
+            <div class="t-stat"><span class="t-num">6</span><span class="t-label">Yrs Experience</span></div>
+            <div class="t-stat"><span class="t-num">5.0★</span><span class="t-label">Rating</span></div>
+          </div>
+          <button class="btn-book" onclick="openModal('priya')">Book a Session</button>
+        </div>
+      </div>
+
+      <!-- Trainer 3 -->
+      <div class="trainer-card reveal" data-category="combat">
+        <div class="trainer-top">
+          <div class="trainer-avatar">👨‍🦲</div>
+          <div class="trainer-badge combat">COMBAT LEAD</div>
+        </div>
+        <div class="trainer-body">
+          <h3>Rahul Verma</h3>
+          <p class="trainer-role">Boxing & MMA Coach</p>
+          <p class="trainer-exp">⭐ 10 Years · State Boxing Champion</p>
+          <p class="trainer-bio">A decorated combat sports athlete who brings championship-level training to IronForge. Rahul's classes build discipline, confidence and serious fitness.</p>
+          <div class="trainer-specialties">
+            <span>Boxing</span><span>MMA</span><span>Self Defence</span><span>Muay Thai</span>
+          </div>
+          <div class="trainer-stats">
+            <div class="t-stat"><span class="t-num">300+</span><span class="t-label">Students</span></div>
+            <div class="t-stat"><span class="t-num">10</span><span class="t-label">Yrs Experience</span></div>
+            <div class="t-stat"><span class="t-num">4.8★</span><span class="t-label">Rating</span></div>
+          </div>
+          <button class="btn-book" onclick="openModal('rahul')">Book a Session</button>
+        </div>
+      </div>
+
+      <!-- Trainer 4 -->
+      <div class="trainer-card reveal" data-category="nutrition">
+        <div class="trainer-top">
+          <div class="trainer-avatar">👩‍🦰</div>
+          <div class="trainer-badge nutrition">NUTRITION LEAD</div>
+        </div>
+        <div class="trainer-body">
+          <h3>Sneha Kapoor</h3>
+          <p class="trainer-role">Nutrition & Diet Expert</p>
+          <p class="trainer-exp">⭐ 5 Years · Registered Dietitian</p>
+          <p class="trainer-bio">A certified nutritionist who creates evidence-based meal plans tailored to individual goals. Sneha's approach combines science with practical, sustainable eating habits.</p>
+          <div class="trainer-specialties">
+            <span>Nutrition</span><span>Weight Loss</span><span>Meal Planning</span><span>Sports Nutrition</span>
+          </div>
+          <div class="trainer-stats">
+            <div class="t-stat"><span class="t-num">100+</span><span class="t-label">Clients</span></div>
+            <div class="t-stat"><span class="t-num">5</span><span class="t-label">Yrs Experience</span></div>
+            <div class="t-stat"><span class="t-num">4.9★</span><span class="t-label">Rating</span></div>
+          </div>
+          <button class="btn-book" onclick="openModal('sneha')">Book a Session</button>
+        </div>
+      </div>
+
+      <!-- Trainer 5 -->
+      <div class="trainer-card reveal" data-category="cardio">
+        <div class="trainer-top">
+          <div class="trainer-avatar">👨</div>
+          <div class="trainer-badge cardio">HIIT SPECIALIST</div>
+        </div>
+        <div class="trainer-body">
+          <h3>Vikram Singh</h3>
+          <p class="trainer-role">HIIT & Metabolic Training</p>
+          <p class="trainer-exp">⭐ 7 Years · ACE Certified</p>
+          <p class="trainer-bio">Vikram specialises in high-intensity interval training that maximises fat burn and cardiovascular performance. His sessions are legendary for their intensity — and results.</p>
+          <div class="trainer-specialties">
+            <span>HIIT</span><span>Cardio</span><span>Fat Loss</span><span>Endurance</span>
+          </div>
+          <div class="trainer-stats">
+            <div class="t-stat"><span class="t-num">180+</span><span class="t-label">Clients</span></div>
+            <div class="t-stat"><span class="t-num">7</span><span class="t-label">Yrs Experience</span></div>
+            <div class="t-stat"><span class="t-num">4.7★</span><span class="t-label">Rating</span></div>
+          </div>
+          <button class="btn-book" onclick="openModal('vikram')">Book a Session</button>
+        </div>
+      </div>
+
+      <!-- Trainer 6 -->
+      <div class="trainer-card reveal" data-category="strength">
+        <div class="trainer-top">
+          <div class="trainer-avatar">👩‍🦳</div>
+          <div class="trainer-badge">STRENGTH COACH</div>
+        </div>
+        <div class="trainer-body">
+          <h3>Meera Iyer</h3>
+          <p class="trainer-role">Functional Strength & Mobility</p>
+          <p class="trainer-exp">⭐ 9 Years · NASM Certified</p>
+          <p class="trainer-bio">Meera blends functional movement patterns with strength training to build bodies that perform in real life. Specialist in women's strength training and post-natal fitness.</p>
+          <div class="trainer-specialties">
+            <span>Functional Training</span><span>Mobility</span><span>Women's Fitness</span><span>Rehab</span>
+          </div>
+          <div class="trainer-stats">
+            <div class="t-stat"><span class="t-num">250+</span><span class="t-label">Clients</span></div>
+            <div class="t-stat"><span class="t-num">9</span><span class="t-label">Yrs Experience</span></div>
+            <div class="t-stat"><span class="t-num">5.0★</span><span class="t-label">Rating</span></div>
+          </div>
+          <button class="btn-book" onclick="openModal('meera')">Book a Session</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== BOOKING MODAL ===== -->
+<div class="modal-overlay" id="modalOverlay" onclick="closeModal()">
+  <div class="modal" onclick="event.stopPropagation()">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div class="modal-header">
+      <div class="modal-avatar" id="modalAvatar"></div>
+      <div>
+        <h3 id="modalName"></h3>
+        <p id="modalRole"></p>
+      </div>
+    </div>
+    <div class="modal-body">
+      <h4>Select a Session Type</h4>
+      <div class="session-types">
+        <button class="session-btn active" onclick="selectSession(this)">1-on-1 Personal Training</button>
+        <button class="session-btn" onclick="selectSession(this)">Group Class</button>
+        <button class="session-btn" onclick="selectSession(this)">Online Coaching</button>
+        <button class="session-btn" onclick="selectSession(this)">Assessment Session</button>
+      </div>
+      <h4>Pick a Date & Time</h4>
+      <div class="time-slots">
+        <button class="slot-btn active" onclick="selectSlot(this)">Mon 6:00 AM</button>
+        <button class="slot-btn" onclick="selectSlot(this)">Mon 7:00 AM</button>
+        <button class="slot-btn" onclick="selectSlot(this)">Tue 6:00 AM</button>
+        <button class="slot-btn" onclick="selectSlot(this)">Wed 5:00 PM</button>
+        <button class="slot-btn" onclick="selectSlot(this)">Thu 7:00 AM</button>
+        <button class="slot-btn" onclick="selectSlot(this)">Fri 6:00 AM</button>
+        <button class="slot-btn disabled">Sat 8:00 AM</button>
+        <button class="slot-btn disabled">Sun 9:00 AM</button>
+      </div>
+      <button class="btn-confirm" onclick="confirmBooking()">Confirm Booking</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===== SUCCESS TOAST ===== -->
+<div class="toast" id="toast"></div>
+
+<!-- ===== CTA ===== -->
+<section class="cta-section reveal">
+  <div class="cta-bg"></div>
+  <div class="cta-content">
+    <h2>FIND YOUR <span>PERFECT</span> COACH</h2>
+    <p>Not sure which trainer is right for you? Take our quick quiz and we'll match you with your ideal coach.</p>
+    <div class="cta-btns">
+      <a href="join-modal.html" class="btn btn-accent">Get Matched Free</a>
+      <a href="membership-plans.html" class="btn btn-outline">View Plans</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <span class="nav-logo">IRON<span>FORGE</span></span>
+      <p>Puducherry's premier fitness destination. Where ordinary people build extraordinary bodies.</p>
+      <div class="footer-socials">
+        <a href="#">📘</a><a href="#">📸</a><a href="#">🐦</a><a href="#">▶️</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Navigate</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="trainers.html">Trainers</a></li>
+        <li><a href="schedule.html">Schedule</a></li>
+        <li><a href="online-classes.html">Online Classes</a></li>
+        <li><a href="membership-plans.html">Plans</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Member</h4>
+      <ul>
+        <li><a href="login.html">Login</a></li>
+        <li><a href="signup.html">Sign Up</a></li>
+        <li><a href="dashboard.html">Dashboard</a></li>
+        <li><a href="progress-chart.html">Progress</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Support</h4>
+      <ul>
+        <li><a href="help-center.html">Help Center</a></li>
+        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+        <li><a href="community-feed.html">Community</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 IronForge Gym, Puducherry. All rights reserved.</p>
+    <div class="footer-socials">
+      <a href="#">📘</a><a href="#">📸</a><a href="#">🐦</a><a href="#">▶️</a>
+    </div>
+  </div>
+</footer>
+
+<script src="trainers.js"></script>
+</body>
+</html>

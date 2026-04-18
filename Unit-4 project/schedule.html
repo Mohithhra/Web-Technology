@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IronForge Gym | Class Schedule</title>
+<link rel="stylesheet" href="schedule.css">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<nav class="navbar" id="navbar">
+  <a href="index.html" class="nav-logo">IRON<span>FORGE</span></a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="trainers.html">Trainers</a></li>
+    <li><a href="schedule.html" class="active">Schedule</a></li>
+    <li><a href="online-classes.html">Online Classes</a></li>
+    <li><a href="membership-plans.html">Plans</a></li>
+  </ul>
+  <div class="nav-cta">
+    <a href="login.html" class="btn-nav-login">Login</a>
+    <a href="join-modal.html" class="btn-nav-join">Join Now</a>
+  </div>
+  <button class="hamburger" onclick="toggleMenu()">☰</button>
+</nav>
+
+<!-- ===== HERO ===== -->
+<section class="schedule-hero">
+  <div class="hero-bg"><div class="hero-grid"></div><div class="hero-glow"></div></div>
+  <div class="schedule-hero-content">
+    <span class="section-tag reveal">WEEKLY CLASS TIMETABLE</span>
+    <h1 class="reveal">PLAN YOUR<br><span>WEEK.</span><br>DOMINATE<br><span class="white">EVERY DAY.</span></h1>
+    <p class="reveal">50+ weekly classes across 6 disciplines. Find your perfect session, book your spot and show up ready to work.</p>
+  </div>
+  <div class="hero-scroll-hint"><span>SCROLL</span><div class="scroll-line"></div></div>
+</section>
+
+<!-- ===== LEGEND + FILTERS ===== -->
+<div class="controls-bar">
+  <div class="controls-inner">
+    <div class="legend">
+      <span class="legend-item"><span class="dot strength"></span>Strength</span>
+      <span class="legend-item"><span class="dot cardio"></span>Cardio & HIIT</span>
+      <span class="legend-item"><span class="dot combat"></span>Boxing & MMA</span>
+      <span class="legend-item"><span class="dot wellness"></span>Yoga & Wellness</span>
+      <span class="legend-item"><span class="dot nutrition"></span>Nutrition</span>
+    </div>
+    <div class="filter-btns">
+      <button class="filter-btn active" data-filter="all">All Classes</button>
+      <button class="filter-btn" data-filter="strength">Strength</button>
+      <button class="filter-btn" data-filter="cardio">Cardio</button>
+      <button class="filter-btn" data-filter="combat">Combat</button>
+      <button class="filter-btn" data-filter="wellness">Wellness</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===== TIMETABLE ===== -->
+<section class="timetable-section">
+  <div class="container">
+
+    <!-- Day Tabs -->
+    <div class="day-tabs">
+      <button class="day-tab active" data-day="mon">MON</button>
+      <button class="day-tab" data-day="tue">TUE</button>
+      <button class="day-tab" data-day="wed">WED</button>
+      <button class="day-tab" data-day="thu">THU</button>
+      <button class="day-tab" data-day="fri">FRI</button>
+      <button class="day-tab" data-day="sat">SAT</button>
+      <button class="day-tab" data-day="sun">SUN</button>
+    </div>
+
+    <!-- Schedule Grid -->
+    <div class="schedule-grid" id="scheduleGrid">
+
+      <!-- ===== MONDAY ===== -->
+      <div class="day-column active" data-day="mon">
+        <div class="day-header"><span class="day-name">MONDAY</span><span class="day-count">6 Classes</span></div>
+        <div class="class-card strength" data-type="strength">
+          <div class="class-time">05:30 AM</div>
+          <div class="class-info">
+            <h4>Early Morning Powerlifting</h4>
+            <p>Arjun Sharma · 60 min · 12 spots left</p>
+          </div>
+          <div class="class-actions">
+            <span class="class-level beginner">Intermediate</span>
+            <button class="btn-book-class" onclick="bookClass(this, 'Early Morning Powerlifting')">Book</button>
+          </div>
+        </div>
+        <div class="class-card cardio" data-type="cardio">
+          <div class="class-time">07:00 AM</div>
+          <div class="class-info">
+            <h4>Morning HIIT Blast</h4>
+            <p>Vikram Singh · 45 min · 8 spots left</p>
+          </div>
+          <div class="class-actions">
+            <span class="class-level all">All Levels</span>
+            <button class="btn-book-class" onclick="bookClass(this, 'Morning HIIT Blast')">Book</button>
+          </div>
+        </div>
+        <div class="class-card wellness" data-type="wellness">
+          <div class="class-time">09:00 AM</div>
+          <div class="class-info">
+            <h4>Yoga Flow & Mobility</h4>
+            <p>Priya Nair · 60 min · 15 spots left</p>
+          </div>
+          <div class="class-actions">
+            <span class="class-level all">All Levels</span>
+            <button class="btn-book-class" onclick="bookClass(this, 'Yoga Flow & Mobility')">Book</button>
+          </div>
+        </div>
+        <div class="class-card strength" data-type="strength">
+          <div class="class-time">12:00 PM</div>
+          <div class="class-info">
+            <h4>Lunchtime Strength</h4>
+            <p>Meera Iyer · 45 min · 10 spots left</p>
+          </div>
+          <div class="class-actions">
+            <span class="class-level beginner">Beginner</span>
+            <button class="btn-book-class" onclick="bookClass(this, 'Lunchtime Strength')">Book</button>
+          </div>
+        </div>
+        <div class="class-card combat" data-type="combat">
+          <div class="class-time">06:00 PM</div>
+          <div class="class-info">
+            <h4>Boxing Fundamentals</h4>
+            <p>Rahul Verma · 60 min · 3 spots left</p>
+          </div>
+          <div class="class-actions">
+            <span class="class-level hot">🔥 Hot</span>
+            <button class="btn-book-class urgent" onclick="bookClass(this, 'Boxing Fundamentals')">Book</button>
+          </div>
+        </div>
+        <div class="class-card cardio" data-type="cardio">
+          <div class="class-time">07:30 PM</div>
+          <div class="class-info">
+            <h4>Evening Metabolic Burn</h4>
+            <p>Vikram Singh · 45 min · 14 spots left</p>
+          </div>
+          <div class="class-actions">
+            <span class="class-level all">All Levels</span>
+            <button class="btn-book-class" onclick="bookClass(this, 'Evening Metabolic Burn')">Book</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== TUESDAY ===== -->
+      <div class="day-column" data-day="tue">
+        <div class="day-header"><span class="day-name">TUESDAY</span><span class="day-count">5 Classes</span></div>
+        <div class="class-card cardio" data-type="cardio">
+          <div class="class-time">06:00 AM</div>
+          <div class="class-info">
+            <h4>Sunrise Cardio</h4>
+            <p>Vikram Singh · 45 min · 20 spots left</p>
+          </div>
+          <div class="class-actions">
+            <span class="class-level all">All Levels</span>
+            <button class="btn-book-class" onclick="bookClass(this, 'Sunrise Cardio')">Book</button>
+          </div>
+        </div>
+        <div class="class-card strength" data-type="strength">
+          <div class="class-time">08:00 AM</div>
+          <div class="class-info">
+            <h4>Olympic Lifting</h4>
+            <p>Arjun Sharma · 75 min · 6 spots left</p>
+          </div>
+          <div class="class-actions">
+            <span class="class-level advanced">Advanced</span>
+            <button class="btn-book-class" onclick="bookClass(this, 'Olympic Lifting')">Book</button>
+          </div>
+        </div>
+        <div class="class-card wellness" data-type="wellness">
+          <div class="class-time">10:00 AM</div>
+          <div class="class-info">
+            <h4>Restorative Yoga</h4>
+            <p>Priya Nair · 60 min · 18 spots left</p>
+          </div>
+          <div class="class-actions">
+            <span class="class-level all">All Levels</span>
+            <button class="btn-book-class" onclick="bookClass(this, 'Restorative Yoga')">Book</button>
+          </div>
+        </div>
+        <div class="class-card combat" data-type="combat">
+          <div class="class-time">05:30 PM</div>
+          <div class="class-info">
+            <h4>MMA Conditioning</h4>
+            <p>Rahul Verma · 60 min · 2 spots left</p>
+          </div>
+          <div class="class-actions">
+            <span class="class-level hot">🔥 Hot</span>
+            <button class="btn-book-class urgent" onclick="bookClass(this, 'MMA Conditioning')">Book</button>
+          </div>
+        </div>
+        <div class="class-card strength" data-type="strength">
+          <div class="class-time">07:00 PM</div>
+          <div class="class-info">
+            <h4>Hypertrophy Training</h4>
+            <p>Meera Iyer · 60 min · 11 spots left</p>
+          </div>
+          <div class="class-actions">
+            <span class="class-level beginner">Intermediate</span>
+            <button class="btn-book-class" onclick="bookClass(this, 'Hypertrophy Training')">Book</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== WEDNESDAY ===== -->
+      <div class="day-column" data-day="wed">
+        <div class="day-header"><span class="day-name">WEDNESDAY</span><span class="day-count">6 Classes</span></div>
+        <div class="class-card strength" data-type="strength">
+          <div class="class-time">05:30 AM</div>
+          <div class="class-info">
+            <h4>Deadlift & Back Day</h4>
+            <p>Arjun Sharma · 60 min · 9 spots left</p>
+          </div>
+          <div class="class-actions">
+            <span class="class-level beginner">Intermediate</span>
+            <button class="btn-book-class" onclick="bookClass(this, 'Deadlift & Back Day')">Book</button>
+          </div>
+        </div>
+        <div class="class-card cardio" data-type="cardio">
+          <div class="class-time">07:00 AM</div>
+          <div class="class-info">
+            <h4>Tabata Intervals</h4>
+            <p>Vikram Singh · 30 min · 16 spots left</p>
+          </div>
+          <div class="class-actions">
+            <span class="class-level all">All Levels</span>
+            <button class="btn-book-class" onclick="bookClass(this, 'Tabata Intervals')">Book</button>
+          </div>
+        </div>
+        <div class="class-card wellness" data-type="wellness">
+          <div class="class-time">09:30 AM</div>
+          <div class="class-info">
+            <h4>Power Yoga</h4>
+            <p>Priya Nair · 60 min · 12 spots left</p>
+          </div>
+          <div class="class-actions">
+            <span class="class-level beginner">Intermediate</span>
+            <button class="btn-book-class" onclick="bookClass(this, 'Power Yoga')">Book</button>
+          </div>
+        </div>
+        <div class="class-card combat" data-type="combat">
+          <div class="class-time">12:00 PM</div>
+          <div class="class-info">
+            <h4>Muay Thai Basics</h4>
+            <p>Rahul Verma · 60 min · 7 spots left</p>
+          </div>
+          <div class="class-actions">
+            <span class="class-level all">All Levels</span>
+            <button class="btn-book-class" onclick="bookClass(this, 'Muay Thai Basics')">Book</button>
+          </div>
+        </div>
+        <div class="class-card strength" data-type="strength">
+          <div class="class-time">05:00 PM</div>
+          <div class="class-info">
+            <h4>Functional Strength</h4>
+            <p>Meera Iyer · 50 min · 14 spots left</p>
+          </div>
+          <div class="class-actions">
+            <span class="class-level all">All Levels</span>
+            <button class="btn-book-class" onclick="bookClass(this, 'Functional Strength')">Book</button>
+          </div>
+        </div>
+        <div class="class-card cardio" data-type="cardio">
+          <div class="class-time">07:30 PM</div>
+          <div class="class-info">
+            <h4>Circuit Training</h4>
+            <p>Vikram Singh · 45 min · 5 spots left</p>
+          </div>
+          <div class="class-actions">
+            <span class="class-level hot">🔥 Hot</span>
+            <button class="btn-book-class urgent" onclick="bookClass(this, 'Circuit Training')">Book</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== THURSDAY ===== -->
+      <div class="day-column" data-day="thu">
+        <div class="day-header"><span class="day-name">THURSDAY</span><span class="day-count">5 Classes</span></div>
+        <div class="class-card cardio" data-type="cardio">
+          <div class="class-time">06:00 AM</div>
+          <div class="class-info">
+            <h4>HIIT & Core</h4>
+            <p>Vikram Singh · 45 min · 20 spots left</p>
+          </div>
+          <div class="class-actions">
+            <span class="class-level all">All Levels</span>
+            <button class="btn-book-class" onclick="bookClass(this, 'HIIT & Core')">Book</button>
+          </div>
+        </div>
+        <div class="class-card strength" data-type="strength">
+          <div class="class-time">08:00 AM</div>
+          <div class="class-info">
+            <h4>Squat & Leg Day</h4>
+            <p>Arjun Sharma · 60 min · 8 spots left</p>
+          </div>
+          <div class="class-actions">
+            <span class="class-level beginner">Intermediate</span>
+            <button class="btn-book-class" onclick="bookClass(this, 'Squat & Leg Day')">Book</button>
+          </div>
+        </div>
+        <div class="class-card combat" data-type="combat">
+          <div class="class-time">11:00 AM</div>
+          <div class="class-info">
+            <h4>Self Defence Workshop</h4>
+            <p>Rahul Verma · 90 min · 10 spots left</p>
+          </div>
+          <div class="class-actions">
+            <span class="class-level all">All Levels</span>
+            <button class="btn-book-class" onclick="bookClass(this, 'Self Defence Workshop')">Book</button>
+          </div>
+        </div>
+        <div class="class-card wellness" data-type="wellness">
+          <div class="class-time">05:00 PM</div>
+          <div class="class-info">
+            <h4>Meditation & Breathwork</h4>
+            <p>Priya Nair · 45 min · 20 spots left</p>
+          </div>
+          <div class="class-actions">
+            <span class="class-level all">All Levels</span>
+            <button class="btn-book-class" onclick="bookClass(this, 'Meditation & Breathwork')">Book</button>
+          </div>
+        </div>
+        <div class="class-card strength" data-type="strength">
+          <div class="class-time">07:00 PM</div>
+          <div class="class-info">
+            <h4>Push/Pull/Legs</h4>
+            <p>Meera Iyer · 60 min · 13 spots left</p>
+          </div>
+          <div class="class-actions">
+            <span class="class-level beginner">Beginner</span>
+            <button class="btn-book-class" onclick="bookClass(this, 'Push/Pull/Legs')">Book</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== FRIDAY ===== -->
+      <div class="day-column" data-day="fri">
+        <div class="day-header"><span class="day-name">FRIDAY</span><span class="day-count">6 Classes</span></div>
+        <div class="class-card strength" data-type="strength">
+          <div class="class-time">05:30 AM</div>
+          <div class="class-info">
+            <h4>Bench Press & Chest</h4>
+            <p>Arjun Sharma · 60 min · 11 spots left</p>
+          </div>
+          <div class="class-actions">
+            <span class="class-level beginner">Intermediate</span>
+            <button class="btn-book-class" onclick="bookClass(this, 'Bench Press & Chest')">Book</button>
+          </div>
+        </div>
+        <div class="class-card cardio" data-type="cardio">
+          <div class="class-time">07:00 AM</div>
+          <div class="class-info">
+            <h4>Friday Burn HIIT</h4>
+            <p>Vikram Singh · 45 min · 4 spots left</p>
+          </div>
+          <div class="class-actions">
+            <span class="class-level hot">🔥 Hot</span>
+            <button class="btn-book-class urgent" onclick="bookClass(this, 'Friday Burn HIIT')">Book</button>
+          </div>
+        </div>
+        <div class="class-card wellness" data-type="wellness">
+          <div class="class-time">09:00 AM</div>
+          <div class="class-info">
+            <h4>Yin Yoga</h4>
+            <p>Priya Nair · 75 min · 18 spots left</p>
+          </div>
+          <div class="class-actions">
+            <span class="class-level all">All Levels</span>
+            <button class="btn-book-class" onclick="bookClass(this, 'Yin Yoga')">Book</button>
+          </div>
+        </div>
+        <div class="class-card combat" data-type="combat">
+          <div class="class-time">12:00 PM</div>
+          <div class="class-info">
+            <h4>Advanced Boxing</h4>
+            <p>Rahul Verma · 60 min · 6 spots left</p>
+          </div>
+          <div class="class-actions">
+            <span class="class-level advanced">Advanced</span>
+            <button class="btn-book-class" onclick="bookClass(this, 'Advanced Boxing')">Book</button>
+          </div>
+        </div>
+        <div class="class-card strength" data-type="strength">
+          <div class="class-time">05:30 PM</div>
+          <div class="class-info">
+            <h4>Full Body Strength</h4>
+            <p>Meera Iyer · 60 min · 9 spots left</p>
+          </div>
+          <div class="class-actions">
+            <span class="class-level all">All Levels</span>
+            <button class="btn-book-class" onclick="bookClass(this, 'Full Body Strength')">Book</button>
+          </div>
+        </div>
+        <div class="class-card cardio" data-type="cardio">
+          <div class="class-time">07:30 PM</div>
+          <div class="class-info">
+            <h4>Friday Night AMRAP</h4>
+            <p>Vikram Singh · 45 min · 15 spots left</p>
+          </div>
+          <div class="class-actions">
+            <span class="class-level all">All Levels</span>
+            <button class="btn-book-class" onclick="bookClass(this, 'Friday Night AMRAP')">Book</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== SATURDAY ===== -->
+      <div class="day-column" data-day="sat">
+        <div class="day-header"><span class="day-name">SATURDAY</span><span class="day-count">5 Classes</span></div>
+        <div class="class-card cardio" data-type="cardio">
+          <div class="class-time">07:00 AM</div>
+          <div class="class-info">
+            <h4>Weekend Warrior HIIT</h4>
+            <p>Vikram Singh · 60 min · 1 spot left</p>
+          </div>
+          <div class="class-actions">
+            <span class="class-level hot">🔥 Last Spot!</span>
+            <button class="btn-book-class urgent" onclick="bookClass(this, 'Weekend Warrior HIIT')">Book</button>
+          </div>
+        </div>
+        <div class="class-card strength" data-type="strength">
+          <div class="class-time">09:00 AM</div>
+          <div class="class-info">
+            <h4>Powerlifting Meet Prep</h4>
+            <p>Arjun Sharma · 90 min · 8 spots left</p>
+          </div>
+          <div class="class-actions">
+            <span class="class-level advanced">Advanced</span>
+            <button class="btn-book-class" onclick="bookClass(this, 'Powerlifting Meet Prep')">Book</button>
+          </div>
+        </div>
+        <div class="class-card combat" data-type="combat">
+          <div class="class-time">11:00 AM</div>
+          <div class="class-info">
+            <h4>Saturday Sparring</h4>
+            <p>Rahul Verma · 75 min · 5 spots left</p>
+          </div>
+          <div class="class-actions">
+            <span class="class-level hot">🔥 Hot</span>
+            <button class="btn-book-class urgent" onclick="bookClass(this, 'Saturday Sparring')">Book</button>
+          </div>
+        </div>
+        <div class="class-card wellness" data-type="wellness">
+          <div class="class-time">01:00 PM</div>
+          <div class="class-info">
+            <h4>Deep Stretch & Recovery</h4>
+            <p>Priya Nair · 60 min · 20 spots left</p>
+          </div>
+          <div class="class-actions">
+            <span class="class-level all">All Levels</span>
+            <button class="btn-book-class" onclick="bookClass(this, 'Deep Stretch & Recovery')">Book</button>
+          </div>
+        </div>
+        <div class="class-card strength" data-type="strength">
+          <div class="class-time">04:00 PM</div>
+          <div class="class-info">
+            <h4>Strongman Training</h4>
+            <p>Arjun Sharma · 60 min · 10 spots left</p>
+          </div>
+          <div class="class-actions">
+            <span class="class-level advanced">Advanced</span>
+            <button class="btn-book-class" onclick="bookClass(this, 'Strongman Training')">Book</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== SUNDAY ===== -->
+      <div class="day-column" data-day="sun">
+        <div class="day-header"><span class="day-name">SUNDAY</span><span class="day-count">3 Classes</span></div>
+        <div class="class-card wellness" data-type="wellness">
+          <div class="class-time">08:00 AM</div>
+          <div class="class-info">
+            <h4>Sunday Morning Yoga</h4>
+            <p>Priya Nair · 75 min · 20 spots left</p>
+          </div>
+          <div class="class-actions">
+            <span class="class-level all">All Levels</span>
+            <button class="btn-book-class" onclick="bookClass(this, 'Sunday Morning Yoga')">Book</button>
+          </div>
+        </div>
+        <div class="class-card cardio" data-type="cardio">
+          <div class="class-time">10:00 AM</div>
+          <div class="class-info">
+            <h4>Active Recovery Run</h4>
+            <p>Vikram Singh · 45 min · 15 spots left</p>
+          </div>
+          <div class="class-actions">
+            <span class="class-level all">All Levels</span>
+            <button class="btn-book-class" onclick="bookClass(this, 'Active Recovery Run')">Book</button>
+          </div>
+        </div>
+        <div class="class-card strength" data-type="strength">
+          <div class="class-time">12:00 PM</div>
+          <div class="class-info">
+            <h4>Sunday Strong</h4>
+            <p>Meera Iyer · 60 min · 12 spots left</p>
+          </div>
+          <div class="class-actions">
+            <span class="class-level all">All Levels</span>
+            <button class="btn-book-class" onclick="bookClass(this, 'Sunday Strong')">Book</button>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- end schedule-grid -->
+  </div>
+</section>
+
+<!-- ===== BOOKING MODAL ===== -->
+<div class="modal-overlay" id="modalOverlay" onclick="closeModal()">
+  <div class="modal" onclick="event.stopPropagation()">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div class="modal-header">
+      <h3>Confirm Booking</h3>
+      <p id="modalClassName"></p>
+    </div>
+    <div class="modal-body">
+      <div class="modal-detail"><span>📅 Class</span><strong id="modalClassDetail"></strong></div>
+      <div class="modal-detail"><span>👤 Name</span><input type="text" id="modalNameInput" placeholder="Your full name" class="modal-input"></div>
+      <div class="modal-detail"><span>📧 Email</span><input type="email" id="modalEmailInput" placeholder="Your email address" class="modal-input"></div>
+      <div class="modal-detail"><span>📋 Note</span><input type="text" id="modalNoteInput" placeholder="Any special requests (optional)" class="modal-input"></div>
+      <button class="btn-confirm" onclick="confirmBooking()">✅ Confirm My Spot</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===== TOAST ===== -->
+<div class="toast" id="toast"></div>
+
+<!-- ===== MY BOOKINGS ===== -->
+<section class="bookings-section" id="bookingsSection" style="display:none;">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-tag">MY BOOKINGS</span>
+      <h2>Your <span>Sessions</span></h2>
+    </div>
+    <div class="bookings-list" id="bookingsList"></div>
+  </div>
+</section>
+
+<!-- ===== CTA ===== -->
+<section class="cta-section reveal">
+  <div class="cta-bg"></div>
+  <div class="cta-content">
+    <h2>NEVER MISS A <span>CLASS</span></h2>
+    <p>Join IronForge and get access to all 50+ weekly classes. Book your spot, track your attendance and crush every session.</p>
+    <div class="cta-btns">
+      <a href="join-modal.html" class="btn btn-accent">Join Now — First Week Free</a>
+      <a href="membership-plans.html" class="btn btn-outline">View Plans</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <span class="nav-logo">IRON<span>FORGE</span></span>
+      <p>Puducherry's premier fitness destination. Where ordinary people build extraordinary bodies.</p>
+      <div class="footer-socials"><a href="#">📘</a><a href="#">📸</a><a href="#">🐦</a><a href="#">▶️</a></div>
+    </div>
+    <div class="footer-col"><h4>Navigate</h4><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="trainers.html">Trainers</a></li><li><a href="schedule.html">Schedule</a></li><li><a href="membership-plans.html">Plans</a></li></ul></div>
+    <div class="footer-col"><h4>Member</h4><ul><li><a href="login.html">Login</a></li><li><a href="signup.html">Sign Up</a></li><li><a href="dashboard.html">Dashboard</a></li><li><a href="progress-chart.html">Progress</a></li></ul></div>
+    <div class="footer-col"><h4>Support</h4><ul><li><a href="help-center.html">Help Center</a></li><li><a href="privacy-policy.html">Privacy Policy</a></li><li><a href="community-feed.html">Community</a></li></ul></div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 IronForge Gym, Puducherry. All rights reserved.</p>
+    <div class="footer-socials"><a href="#">📘</a><a href="#">📸</a><a href="#">🐦</a><a href="#">▶️</a></div>
+  </div>
+</footer>
+
+<script src="schedule.js"></script>
+</body>
+</html>

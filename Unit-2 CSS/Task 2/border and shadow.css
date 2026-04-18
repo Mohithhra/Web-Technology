@@ -1,0 +1,52 @@
+#card {
+    width: 250px;
+    padding: 20px;
+    background-color: #34db42;
+    border-radius: 10px;
+    box-shadow: 10px 10px 2px blue;
+    opacity: 1;
+}
+#card:focus{
+    outline: 10px solid orange;
+}
+
+#btn{
+    background-color: rgb(240, 67, 96);
+    color: white;
+    padding: 15px 35px;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background 0.50s, transform 0.60s, box-shadow 0.60s;
+}
+#btn:hover{
+    background: blue;
+    transform: scale(1.5);
+    box-shadow: 0 8px 15px rgb(203, 7, 247);
+}
+
+body{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 80px;
+}
+
+#box{
+    width: 60px;
+    height: 60px;
+    background: coral;
+    border-radius: 10px;
+    animation: bounce 5s infinite alternate;
+}
+
+@keyframes bounce{
+    from{
+        transform: translateY(0);
+    }
+    to{
+        transform: translateY(-150px);
+    }
+}

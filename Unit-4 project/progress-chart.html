@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IronForge | Progress Charts</title>
+<link rel="stylesheet" href="progress-chart.css">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- ===== SIDEBAR ===== -->
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-logo"><a href="index.html" class="logo">IRON<span>FORGE</span></a></div>
+  <nav class="sidebar-nav">
+    <div class="nav-section-label">MAIN</div>
+    <a href="dashboard.html" class="nav-item"><span class="nav-icon">📊</span><span class="nav-label">Dashboard</span></a>
+    <a href="activity-log.html" class="nav-item"><span class="nav-icon">📋</span><span class="nav-label">Activity Log</span></a>
+    <a href="workout-builder.html" class="nav-item"><span class="nav-icon">🏋️</span><span class="nav-label">Workout Builder</span></a>
+    <a href="exercise-library.html" class="nav-item"><span class="nav-icon">📚</span><span class="nav-label">Exercise Library</span></a>
+    <div class="nav-section-label">HEALTH</div>
+    <a href="nutrition-tracker.html" class="nav-item"><span class="nav-icon">🥗</span><span class="nav-label">Nutrition</span></a>
+    <a href="progress-chart.html" class="nav-item active"><span class="nav-icon">📈</span><span class="nav-label">Progress</span></a>
+    <div class="nav-section-label">COMMUNITY</div>
+    <a href="community-feed.html" class="nav-item"><span class="nav-icon">👥</span><span class="nav-label">Community</span></a>
+    <a href="leaderboard.html" class="nav-item"><span class="nav-icon">🏆</span><span class="nav-label">Leaderboard</span></a>
+    <a href="achievement-badges.html" class="nav-item"><span class="nav-icon">🎖️</span><span class="nav-label">Achievements</span><span class="nav-badge">3</span></a>
+    <div class="nav-section-label">ACCOUNT</div>
+    <a href="settings-profile.html" class="nav-item"><span class="nav-icon">⚙️</span><span class="nav-label">Settings</span></a>
+    <a href="help-center.html" class="nav-item"><span class="nav-icon">❓</span><span class="nav-label">Help</span></a>
+  </nav>
+  <div class="sidebar-plan">
+    <div class="plan-badge">⚡ PRO MEMBER</div>
+    <p>21 days remaining</p>
+    <a href="membership-plans.html" class="btn-renew">Renew Plan</a>
+  </div>
+</aside>
+
+<!-- MOBILE TOPBAR -->
+<div class="mobile-topbar">
+  <button class="hamburger-dash" onclick="toggleSidebar()">☰</button>
+  <span class="logo">IRON<span>FORGE</span></span>
+  <div class="topbar-avatar">M</div>
+</div>
+<div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleSidebar()"></div>
+
+<!-- ===== MAIN ===== -->
+<main class="main-content">
+
+  <!-- TOPBAR -->
+  <header class="topbar">
+    <div class="topbar-left">
+      <h1>Progress <span>Charts</span></h1>
+      <p>Track every metric of your transformation</p>
+    </div>
+    <div class="topbar-right">
+      <button class="topbar-btn" onclick="openLogModal()">+ Log Measurement</button>
+      <div class="range-tabs">
+        <button class="rtab active" data-range="1m" onclick="setRange(this,'1m')">1M</button>
+        <button class="rtab" data-range="3m" onclick="setRange(this,'3m')">3M</button>
+        <button class="rtab" data-range="6m" onclick="setRange(this,'6m')">6M</button>
+        <button class="rtab" data-range="1y" onclick="setRange(this,'1y')">1Y</button>
+      </div>
+      <div class="avatar-wrap"><div class="avatar">M</div><div class="avatar-status"></div></div>
+    </div>
+  </header>
+
+  <!-- ===== HERO STATS ===== -->
+  <div class="hero-stats-row">
+    <div class="hero-stat-card">
+      <div class="hsc-icon">⚖️</div>
+      <div class="hsc-body">
+        <span class="hsc-label">Current Weight</span>
+        <strong class="hsc-val">74.2 <span>kg</span></strong>
+        <span class="hsc-delta down">▼ 3.8kg since start</span>
+      </div>
+    </div>
+    <div class="hero-stat-card">
+      <div class="hsc-icon">💪</div>
+      <div class="hsc-body">
+        <span class="hsc-label">Muscle Mass</span>
+        <strong class="hsc-val">38.4 <span>kg</span></strong>
+        <span class="hsc-delta up">▲ +2.1kg since start</span>
+      </div>
+    </div>
+    <div class="hero-stat-card">
+      <div class="hsc-icon">🔥</div>
+      <div class="hsc-body">
+        <span class="hsc-label">Body Fat</span>
+        <strong class="hsc-val">14.8 <span>%</span></strong>
+        <span class="hsc-delta down">▼ 4.2% since start</span>
+      </div>
+    </div>
+    <div class="hero-stat-card">
+      <div class="hsc-icon">📏</div>
+      <div class="hsc-body">
+        <span class="hsc-label">Waist</span>
+        <strong class="hsc-val">82 <span>cm</span></strong>
+        <span class="hsc-delta down">▼ 6cm since start</span>
+      </div>
+    </div>
+    <div class="hero-stat-card">
+      <div class="hsc-icon">🏃</div>
+      <div class="hsc-body">
+        <span class="hsc-label">Total Workouts</span>
+        <strong class="hsc-val">47 <span></span></strong>
+        <span class="hsc-delta up">▲ +12 this month</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== CHARTS GRID ===== -->
+  <div class="charts-grid">
+
+    <!-- WEIGHT CHART -->
+    <div class="chart-card wide">
+      <div class="chart-card-header">
+        <div>
+          <h3>Body Weight</h3>
+          <p id="weightRange">Last 30 days</p>
+        </div>
+        <div class="chart-legend">
+          <span class="legend-dot" style="background:var(--primary)"></span><span>Weight (kg)</span>
+          <span class="legend-dot" style="background:var(--accent)"></span><span>Goal (72kg)</span>
+        </div>
+      </div>
+      <div class="chart-area" id="weightChart"></div>
+    </div>
+
+    <!-- BODY FAT CHART -->
+    <div class="chart-card">
+      <div class="chart-card-header">
+        <div><h3>Body Fat %</h3><p>Trending down 📉</p></div>
+      </div>
+      <div class="chart-area" id="bodyFatChart"></div>
+    </div>
+
+    <!-- WORKOUTS PER WEEK -->
+    <div class="chart-card">
+      <div class="chart-card-header">
+        <div><h3>Workouts / Week</h3><p>Consistency score</p></div>
+      </div>
+      <div class="chart-area bar-chart-area" id="workoutsChart"></div>
+    </div>
+
+    <!-- STRENGTH PRs -->
+    <div class="chart-card wide">
+      <div class="chart-card-header">
+        <div><h3>Personal Records</h3><p>Your all-time bests 🏆</p></div>
+        <button class="btn-add-pr" onclick="openPRModal()">+ Add PR</button>
+      </div>
+      <div class="pr-grid" id="prGrid"></div>
+    </div>
+
+    <!-- BODY MEASUREMENTS -->
+    <div class="chart-card">
+      <div class="chart-card-header">
+        <div><h3>Body Measurements</h3><p>Centimetres</p></div>
+      </div>
+      <div class="measurements-grid" id="measurementsGrid"></div>
+    </div>
+
+    <!-- CALORIES BURNED -->
+    <div class="chart-card">
+      <div class="chart-card-header">
+        <div><h3>Weekly Calories Burned</h3><p>Last 8 weeks</p></div>
+      </div>
+      <div class="chart-area bar-chart-area" id="calsChart"></div>
+    </div>
+
+  </div>
+
+</main>
+
+<!-- ===== LOG MEASUREMENT MODAL ===== -->
+<div class="modal-overlay" id="modalOverlay" onclick="closeModal()">
+  <div class="modal" onclick="event.stopPropagation()">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div class="modal-header">
+      <h3>Log Measurement</h3>
+      <p>Record today's body stats</p>
+    </div>
+    <div class="modal-body">
+      <div class="input-row">
+        <div class="input-group"><label>Weight (kg)</label><input type="number" id="logWeight" class="modal-input" placeholder="74.2" step="0.1"></div>
+        <div class="input-group"><label>Body Fat %</label><input type="number" id="logBodyFat" class="modal-input" placeholder="14.8" step="0.1"></div>
+      </div>
+      <div class="input-row">
+        <div class="input-group"><label>Chest (cm)</label><input type="number" id="logChest" class="modal-input" placeholder="100"></div>
+        <div class="input-group"><label>Waist (cm)</label><input type="number" id="logWaist" class="modal-input" placeholder="82"></div>
+      </div>
+      <div class="input-row">
+        <div class="input-group"><label>Hips (cm)</label><input type="number" id="logHips" class="modal-input" placeholder="95"></div>
+        <div class="input-group"><label>Arms (cm)</label><input type="number" id="logArms" class="modal-input" placeholder="38"></div>
+      </div>
+      <div class="input-row">
+        <div class="input-group"><label>Thighs (cm)</label><input type="number" id="logThighs" class="modal-input" placeholder="56"></div>
+        <div class="input-group"><label>Neck (cm)</label><input type="number" id="logNeck" class="modal-input" placeholder="38"></div>
+      </div>
+      <button class="btn-confirm" onclick="saveMeasurement()">✅ Save Measurement</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===== ADD PR MODAL ===== -->
+<div class="modal-overlay" id="prModalOverlay" onclick="closePRModal()">
+  <div class="modal" onclick="event.stopPropagation()">
+    <button class="modal-close" onclick="closePRModal()">✕</button>
+    <div class="modal-header">
+      <h3>Add Personal Record</h3>
+      <p>Log your new all-time best</p>
+    </div>
+    <div class="modal-body">
+      <div class="input-group"><label>Exercise</label>
+        <select id="prExercise" class="modal-input modal-select">
+          <option>Bench Press</option><option>Squat</option><option>Deadlift</option>
+          <option>Overhead Press</option><option>Barbell Row</option><option>Pull-Ups</option>
+          <option>Incline Press</option><option>Romanian Deadlift</option>
+        </select>
+      </div>
+      <div class="input-row">
+        <div class="input-group"><label>Weight (kg)</label><input type="number" id="prWeight" class="modal-input" placeholder="100"></div>
+        <div class="input-group"><label>Reps</label><input type="number" id="prReps" class="modal-input" placeholder="5"></div>
+      </div>
+      <div class="input-group"><label>Notes</label><input type="text" id="prNotes" class="modal-input" placeholder="Felt great! Form was solid."></div>
+      <button class="btn-confirm" onclick="savePR()">🏆 Save PR</button>
+    </div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<script src="progress-chart.js"></script>
+</body>
+</html>

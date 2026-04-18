@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IronForge | Workout Builder</title>
+<link rel="stylesheet" href="workout-builder.css">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- ===== SIDEBAR ===== -->
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-logo"><a href="index.html" class="logo">IRON<span>FORGE</span></a></div>
+  <nav class="sidebar-nav">
+    <div class="nav-section-label">MAIN</div>
+    <a href="dashboard.html" class="nav-item"><span class="nav-icon">📊</span><span class="nav-label">Dashboard</span></a>
+    <a href="activity-log.html" class="nav-item"><span class="nav-icon">📋</span><span class="nav-label">Activity Log</span></a>
+    <a href="workout-builder.html" class="nav-item active"><span class="nav-icon">🏋️</span><span class="nav-label">Workout Builder</span></a>
+    <a href="exercise-library.html" class="nav-item"><span class="nav-icon">📚</span><span class="nav-label">Exercise Library</span></a>
+    <div class="nav-section-label">HEALTH</div>
+    <a href="nutrition-tracker.html" class="nav-item"><span class="nav-icon">🥗</span><span class="nav-label">Nutrition</span></a>
+    <a href="progress-chart.html" class="nav-item"><span class="nav-icon">📈</span><span class="nav-label">Progress</span></a>
+    <div class="nav-section-label">COMMUNITY</div>
+    <a href="community-feed.html" class="nav-item"><span class="nav-icon">👥</span><span class="nav-label">Community</span></a>
+    <a href="leaderboard.html" class="nav-item"><span class="nav-icon">🏆</span><span class="nav-label">Leaderboard</span></a>
+    <a href="achievement-badges.html" class="nav-item"><span class="nav-icon">🎖️</span><span class="nav-label">Achievements</span><span class="nav-badge">3</span></a>
+    <div class="nav-section-label">ACCOUNT</div>
+    <a href="settings-profile.html" class="nav-item"><span class="nav-icon">⚙️</span><span class="nav-label">Settings</span></a>
+    <a href="help-center.html" class="nav-item"><span class="nav-icon">❓</span><span class="nav-label">Help</span></a>
+  </nav>
+  <div class="sidebar-plan">
+    <div class="plan-badge">⚡ PRO MEMBER</div>
+    <p>21 days remaining</p>
+    <a href="membership-plans.html" class="btn-renew">Renew Plan</a>
+  </div>
+</aside>
+
+<!-- MOBILE TOPBAR -->
+<div class="mobile-topbar">
+  <button class="hamburger-dash" onclick="toggleSidebar()">☰</button>
+  <span class="logo">IRON<span>FORGE</span></span>
+  <div class="topbar-avatar">M</div>
+</div>
+<div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleSidebar()"></div>
+
+<!-- ===== MAIN ===== -->
+<main class="main-content">
+
+  <!-- TOPBAR -->
+  <header class="topbar">
+    <div class="topbar-left">
+      <h1>Workout <span>Builder</span></h1>
+      <p>Build, save and start your custom workouts</p>
+    </div>
+    <div class="topbar-right">
+      <button class="topbar-btn" onclick="openSavedModal()">📂 My Workouts</button>
+      <button class="topbar-btn primary" onclick="startWorkout()">▶ Start Workout</button>
+      <div class="avatar-wrap"><div class="avatar">M</div><div class="avatar-status"></div></div>
+    </div>
+  </header>
+
+  <!-- TWO PANEL LAYOUT -->
+  <div class="builder-layout">
+
+    <!-- ===== LEFT: EXERCISE PICKER ===== -->
+    <div class="panel panel-left">
+      <div class="panel-header">
+        <h3>Exercise Library</h3>
+        <input type="text" class="search-input" id="exerciseSearch" placeholder="🔍 Search exercises..." oninput="filterExercises()">
+      </div>
+
+      <!-- Muscle Group Tabs -->
+      <div class="muscle-tabs" id="muscleTabs">
+        <button class="mtab active" data-group="all">All</button>
+        <button class="mtab" data-group="chest">Chest</button>
+        <button class="mtab" data-group="back">Back</button>
+        <button class="mtab" data-group="shoulders">Shoulders</button>
+        <button class="mtab" data-group="arms">Arms</button>
+        <button class="mtab" data-group="legs">Legs</button>
+        <button class="mtab" data-group="core">Core</button>
+        <button class="mtab" data-group="cardio">Cardio</button>
+      </div>
+
+      <!-- Exercise List -->
+      <div class="exercise-list" id="exerciseList"></div>
+    </div>
+
+    <!-- ===== RIGHT: WORKOUT CANVAS ===== -->
+    <div class="panel panel-right">
+      <div class="panel-header">
+        <div class="workout-title-wrap">
+          <input type="text" class="workout-name-input" id="workoutName" placeholder="Name your workout..." value="Upper Body Power">
+          <span class="workout-count" id="workoutCount">0 exercises</span>
+        </div>
+      </div>
+
+      <!-- Workout Meta -->
+      <div class="workout-meta-row">
+        <div class="meta-chip">
+          <label>Type</label>
+          <select id="workoutType" class="meta-select">
+            <option value="strength">💪 Strength</option>
+            <option value="cardio">⚡ Cardio</option>
+            <option value="hiit">🔥 HIIT</option>
+            <option value="wellness">🧘 Wellness</option>
+          </select>
+        </div>
+        <div class="meta-chip">
+          <label>Difficulty</label>
+          <select id="workoutDiff" class="meta-select">
+            <option value="beginner">🟢 Beginner</option>
+            <option value="intermediate" selected>🟡 Intermediate</option>
+            <option value="advanced">🔴 Advanced</option>
+          </select>
+        </div>
+        <div class="meta-chip">
+          <label>Est. Duration</label>
+          <span class="meta-value" id="estDuration">0 min</span>
+        </div>
+        <div class="meta-chip">
+          <label>Est. Calories</label>
+          <span class="meta-value" id="estCalories">0 kcal</span>
+        </div>
+      </div>
+
+      <!-- Canvas -->
+      <div class="workout-canvas" id="workoutCanvas">
+        <div class="canvas-empty" id="canvasEmpty">
+          <span class="empty-icon">🏋️</span>
+          <p>Add exercises from the library</p>
+          <span>Click any exercise to add it to your workout</span>
+        </div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="canvas-actions">
+        <button class="btn-secondary" onclick="clearWorkout()">🗑 Clear</button>
+        <button class="btn-secondary" onclick="saveWorkout()">💾 Save Workout</button>
+        <button class="btn-primary" onclick="startWorkout()">▶ Start Now</button>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ===== SAVED WORKOUTS SECTION ===== -->
+  <div class="saved-section">
+    <div class="saved-header">
+      <h3>Saved Workouts</h3>
+      <span id="savedCount" class="saved-count">0 saved</span>
+    </div>
+    <div class="saved-grid" id="savedGrid">
+      <div class="saved-empty" id="savedEmpty">
+        <span>No saved workouts yet. Build one and save it!</span>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<!-- ===== ACTIVE WORKOUT MODE ===== -->
+<div class="workout-mode-overlay" id="workoutMode">
+  <div class="workout-mode">
+    <div class="wm-header">
+      <div>
+        <h2 id="wmTitle">Upper Body Power</h2>
+        <p id="wmSubtitle">Exercise 1 of 5</p>
+      </div>
+      <div class="wm-header-right">
+        <div class="wm-timer" id="wmTimer">00:00</div>
+        <button class="wm-close" onclick="exitWorkout()">✕ End</button>
+      </div>
+    </div>
+    <div class="wm-progress-bar"><div class="wm-progress-fill" id="wmProgressFill"></div></div>
+    <div class="wm-body">
+      <div class="wm-exercise">
+        <div class="wm-ex-icon" id="wmExIcon">🏋️</div>
+        <h3 id="wmExName">Bench Press</h3>
+        <p id="wmExDetail">4 sets × 8 reps · 80kg</p>
+      </div>
+      <div class="wm-sets" id="wmSets"></div>
+      <div class="wm-rest" id="wmRest" style="display:none">
+        <div class="rest-label">REST</div>
+        <div class="rest-timer" id="restTimer">60</div>
+        <button class="btn-skip-rest" onclick="skipRest()">Skip Rest →</button>
+      </div>
+    </div>
+    <div class="wm-footer">
+      <button class="wm-btn prev" onclick="prevExercise()">← Prev</button>
+      <button class="wm-btn next" onclick="nextExercise()">Next Exercise →</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===== WORKOUT COMPLETE MODAL ===== -->
+<div class="complete-overlay" id="completeOverlay">
+  <div class="complete-modal">
+    <div class="complete-icon">🏆</div>
+    <h2>WORKOUT COMPLETE!</h2>
+    <p id="completeSummary">Great session! You crushed it.</p>
+    <div class="complete-stats" id="completeStats"></div>
+    <div class="complete-btns">
+      <button class="btn-primary" onclick="logCompleted()">📋 Log to Activity</button>
+      <button class="btn-secondary" onclick="closeComplete()">Done</button>
+    </div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<script src="workout-builder.js"></script>
+</body>
+</html>

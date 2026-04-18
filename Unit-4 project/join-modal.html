@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Join IronForge Gym — Register Now</title>
+  <link rel="icon" href="favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="join-modal.css">
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════
+     PAGE WRAPPER — full screen registration
+══════════════════════════════════════════ -->
+<div class="jm-page">
+
+  <!-- BACK LINK -->
+  <a class="jm-back-link" href="index.html">← Back to IronForge</a>
+
+  <!-- PROCESSING OVERLAY -->
+  <div class="jm-processing" id="jmProcessing">
+    <div class="jm-spinner"></div>
+    <p id="jmProcessingMsg">Verifying payment…</p>
+  </div>
+
+  <div class="jm-box" id="jmBox">
+
+    <!-- ══════════════════════════════
+         SCREEN 1–3: REGISTRATION FORM
+    ══════════════════════════════ -->
+    <div class="jm-screen active" id="jmScreenForm">
+
+      <div class="jm-header">
+        <span class="fire">🔥</span>
+        <h2>JOIN <span>IRONFORGE</span></h2>
+        <p>Complete your registration and pay securely via UPI</p>
+      </div>
+
+      <div class="jm-steps" id="jmStepsBar">
+        <div class="jm-step active" id="jmSt1">
+          <div class="jm-step-num">1</div>
+          <span>Personal</span>
+        </div>
+        <div class="jm-step-line" id="jmLn1"></div>
+        <div class="jm-step" id="jmSt2">
+          <div class="jm-step-num">2</div>
+          <span>Plan</span>
+        </div>
+        <div class="jm-step-line" id="jmLn2"></div>
+        <div class="jm-step" id="jmSt3">
+          <div class="jm-step-num">3</div>
+          <span>Goals</span>
+        </div>
+      </div>
+
+      <div class="jm-body">
+        <div class="jm-error" id="jmError"></div>
+
+        <!-- ── PANEL 1: Personal Info ── -->
+        <div class="jm-panel active" id="jmP1">
+          <div class="jm-slbl">Personal Information</div>
+
+          <div class="jm-row">
+            <div class="jm-group">
+              <label>First Name *</label>
+              <input class="jm-input" id="jmFN" placeholder="Rajesh" type="text">
+            </div>
+            <div class="jm-group">
+              <label>Last Name *</label>
+              <input class="jm-input" id="jmLN" placeholder="Kumar" type="text">
+            </div>
+          </div>
+
+          <div class="jm-group">
+            <label>Email Address *</label>
+            <input class="jm-input" id="jmEM" placeholder="rajesh@example.com" type="email">
+          </div>
+
+          <div class="jm-group">
+            <label>Phone Number *</label>
+            <input class="jm-input" id="jmPH" placeholder="+91 98765 43210" type="tel">
+          </div>
+
+          <div class="jm-row">
+            <div class="jm-group">
+              <label>Date of Birth</label>
+              <input class="jm-input" id="jmDOB" type="date">
+            </div>
+            <div class="jm-group">
+              <label>Gender</label>
+              <select class="jm-input jm-select" id="jmGEN">
+                <option value="">Select</option>
+                <option>Male</option>
+                <option>Female</option>
+                <option>Other</option>
+                <option>Prefer not to say</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="jm-group">
+            <label>Area / Address</label>
+            <input class="jm-input" id="jmADR" placeholder="e.g. White Town, Puducherry" type="text">
+          </div>
+        </div>
+
+        <!-- ── PANEL 2: Plan ── -->
+        <div class="jm-panel" id="jmP2">
+          <div class="jm-slbl">Choose Your Membership Plan</div>
+
+          <div class="jm-plans">
+            <input type="radio" name="jmPlan" id="jmPS" class="jm-plan-r" value="Starter|999" checked>
+            <label for="jmPS">
+              <span class="jm-plan-emoji">🌱</span>
+              <span class="jm-plan-name">STARTER</span>
+              <span class="jm-plan-price">₹999/mo</span>
+            </label>
+
+            <input type="radio" name="jmPlan" id="jmPP" class="jm-plan-r" value="Pro|1999">
+            <label for="jmPP">
+              <span class="jm-plan-emoji">⚡</span>
+              <span class="jm-plan-name">PRO</span>
+              <span class="jm-plan-price">₹1999/mo</span>
+            </label>
+
+            <input type="radio" name="jmPlan" id="jmPE" class="jm-plan-r" value="Elite|3499">
+            <label for="jmPE">
+              <span class="jm-plan-emoji">👑</span>
+              <span class="jm-plan-name">ELITE</span>
+              <span class="jm-plan-price">₹3499/mo</span>
+            </label>
+          </div>
+
+          <div class="jm-slbl">Membership Start Date</div>
+          <div class="jm-group">
+            <label>When do you want to start? *</label>
+            <input class="jm-input" id="jmSD" type="date">
+          </div>
+
+          <div class="jm-slbl">Preferences</div>
+          <div class="jm-row">
+            <div class="jm-group">
+              <label>Preferred Timing</label>
+              <select class="jm-input jm-select" id="jmTM">
+                <option value="">Select</option>
+                <option>Early Morning (5AM–8AM)</option>
+                <option>Morning (8AM–12PM)</option>
+                <option>Afternoon (12PM–4PM)</option>
+                <option>Evening (4PM–8PM)</option>
+                <option>Night (8PM–11PM)</option>
+                <option>Flexible</option>
+              </select>
+            </div>
+            <div class="jm-group">
+              <label>How did you hear about us?</label>
+              <select class="jm-input jm-select" id="jmSRC">
+                <option value="">Select</option>
+                <option>Instagram</option>
+                <option>Facebook</option>
+                <option>Google Search</option>
+                <option>Friend / Referral</option>
+                <option>Walked Past</option>
+                <option>Other</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── PANEL 3: Goals ── -->
+        <div class="jm-panel" id="jmP3">
+          <div class="jm-slbl">Primary Fitness Goal</div>
+          <div class="jm-goals">
+            <input type="radio" name="jmGoal" id="jmG1" class="jm-goal-r" value="Weight Loss" checked>
+            <label for="jmG1">🔥 Weight Loss</label>
+
+            <input type="radio" name="jmGoal" id="jmG2" class="jm-goal-r" value="Build Muscle">
+            <label for="jmG2">💪 Build Muscle</label>
+
+            <input type="radio" name="jmGoal" id="jmG3" class="jm-goal-r" value="General Fitness">
+            <label for="jmG3">🏃 General Fitness</label>
+
+            <input type="radio" name="jmGoal" id="jmG4" class="jm-goal-r" value="Strength & Power">
+            <label for="jmG4">🏋️ Strength</label>
+
+            <input type="radio" name="jmGoal" id="jmG5" class="jm-goal-r" value="Cardio & Endurance">
+            <label for="jmG5">⚡ Cardio</label>
+
+            <input type="radio" name="jmGoal" id="jmG6" class="jm-goal-r" value="Wellness & Flexibility">
+            <label for="jmG6">🧘 Wellness</label>
+
+            <input type="radio" name="jmGoal" id="jmG7" class="jm-goal-r" value="Sport Performance">
+            <label for="jmG7">🏆 Sport Performance</label>
+          </div>
+
+          <div class="jm-slbl">Experience Level</div>
+          <div class="jm-group">
+            <select class="jm-input jm-select" id="jmLV">
+              <option value="">Select your level</option>
+              <option>Beginner (never trained)</option>
+              <option>Beginner (some experience)</option>
+              <option>Intermediate (1–2 years)</option>
+              <option>Advanced (3+ years)</option>
+              <option>Athlete / Competitive</option>
+            </select>
+          </div>
+
+          <div class="jm-group">
+            <label>Any health conditions or injuries? (Optional)</label>
+            <textarea class="jm-input jm-textarea" id="jmHL" placeholder="e.g. lower back pain, knee injury…"></textarea>
+          </div>
+
+          <div class="jm-group">
+            <label>Anything else for our team?</label>
+            <textarea class="jm-input jm-textarea" id="jmNT" placeholder="Your message…"></textarea>
+          </div>
+        </div>
+      </div>
+
+      <!-- FOOTER BUTTONS -->
+      <div class="jm-footer">
+        <button class="jm-btn-back" id="jmBtnBack" onclick="jmPrev()" style="display:none">← Back</button>
+        <button class="jm-btn-next" id="jmBtnNext" onclick="jmNext()">Next Step →</button>
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════
+         SCREEN 4: UPI PAYMENT
+    ══════════════════════════════ -->
+    <div class="jm-screen" id="jmScreenPay">
+      <div class="jm-pay">
+        <h3>💳 Complete Payment</h3>
+        <p class="jm-pay-sub">Scan the QR code with any UPI app to pay</p>
+
+        <div class="jm-pay-amt" id="jmPayAmt">₹999</div>
+
+        <div class="jm-qr-wrap">
+          <canvas id="jmQrCanvas" width="180" height="180"></canvas>
+        </div>
+
+        <div class="jm-upi-id" id="jmUpiId">ironforge.gym@okaxis</div>
+        <p class="jm-upi-note">UPI ID · IronForge Gym · Puducherry</p>
+
+        <div class="jm-how">
+          <div class="jm-how-row">
+            <div class="jm-how-num">1</div>
+            <span>Open any UPI app — GPay, PhonePe, Paytm, BHIM</span>
+          </div>
+          <div class="jm-how-row">
+            <div class="jm-how-num">2</div>
+            <span>Tap <strong style="color:#f0f0f0">Scan QR</strong> and point your camera at the code above</span>
+          </div>
+          <div class="jm-how-row">
+            <div class="jm-how-num">3</div>
+            <span>Confirm amount shows <span id="jmHowAmt" style="color:#ff4500;font-weight:700">₹999</span></span>
+          </div>
+          <div class="jm-how-row">
+            <div class="jm-how-num">4</div>
+            <span>Enter your UPI PIN and complete the payment</span>
+          </div>
+          <div class="jm-how-row">
+            <div class="jm-how-num">5</div>
+            <span>Click <strong style="color:#00c851">"I've Paid"</strong> below to confirm</span>
+          </div>
+        </div>
+
+        <button class="jm-btn-verify" onclick="jmVerifyPayment()">✅ I've Paid — Confirm</button>
+        <br>
+        <button class="jm-btn-change" onclick="jmGoToScreen('jmScreenForm')">← Change plan / details</button>
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════
+         SCREEN 5: SUCCESS + INVOICE
+    ══════════════════════════════ -->
+    <div class="jm-screen" id="jmScreenSuccess">
+      <div class="jm-success">
+        <span class="jm-success-icon">🎉</span>
+        <h3>Welcome to IronForge!</h3>
+        <p>Your membership is confirmed. Our team will contact you within <strong>24 hours</strong> to schedule your first session. Your invoice is below.</p>
+
+        <div class="jm-invoice" id="jmInvoice">
+          <div class="jm-inv-top">
+            <span class="jm-inv-brand">IRONFORGE GYM</span>
+            <div class="jm-inv-meta">
+              <div class="inv-no" id="jmInvNo">INV-000000</div>
+              <div class="inv-date" id="jmInvDate"></div>
+            </div>
+          </div>
+          <div class="jm-inv-body" id="jmInvBody"></div>
+        </div>
+
+        <div class="jm-success-btns">
+          <button class="jm-btn-pdf" onclick="jmDownloadPDF()">📄 Download PDF</button>
+          <button class="jm-btn-email-bill" id="jmEmailBtn" onclick="jmSendEmail()">📧 Send to Email</button>
+        </div>
+        <button class="jm-btn-done" onclick="window.location.href='index.html'">← Back to Home</button>
+      </div>
+    </div>
+
+  </div><!-- end .jm-box -->
+</div><!-- end .jm-page -->
+
+<!-- TOAST -->
+<div class="jm-toast" id="jmToast"></div>
+
+<!-- EmailJS -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<!-- Modal Logic -->
+<script src="join-modal.js"></script>
+
+</body>
+</html>

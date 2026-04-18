@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admission Form</title>
+</head>
+<body> 
+   <h2>Admission Form</h2>
+<form>
+    <fieldset>
+        <legend>Personal Information</legend>
+
+        <label>Name:</label>
+        <input type="text" required><br><br>
+
+        <label>Email:</label>
+        <input type="email" required><br><br>
+
+        <label>Phn no:</label>
+        <input type="text" pattern="[0-9]{10}" placeholder="10 digit number" required><br><br>
+
+    </fieldset>
+
+    <br>
+
+    <fieldset>
+        <legend>Course Details</legend>
+
+        <label>Choose Course:</label><br>
+        <select required>
+            <option value="">---Select---</option>
+            <option>BE CSE</option>
+            <option>BE IT</option>
+            <option>BSC AIDS</option>
+            <option>BSC CYBER</option>
+        </select><br><br>
+
+        <label>Shift:</label>
+        <input type="radio" name="shift" required> Forenoon
+        <input type="radio" name="shift"> Afternoon<br><br>
+
+        <input type="checkbox"> Hostel Required<br><br>
+
+        <input type="submit" value="Submit Form">
+    <input type="reset" value="Clear All">
+    
+    </fieldset>
+    </form>
+</body>
+</html>

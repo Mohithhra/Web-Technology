@@ -1,0 +1,37 @@
+body {
+    font-size: 20px;
+    margin: 0;
+    padding: 0;
+}
+
+/*semantic sections */
+header, nav, main, footer, section, article, aside {
+    padding: 15px;
+    border: 1px solid #e30f0f; 
+    margin: 8px;
+    border-radius: 6px;
+}
+
+/* Nav links-inline elements */
+nav a{
+    text-decoration: none;
+    font-weight: bold;
+    margin-right: 15px;
+}
+
+
+/* Block vs inline demo */
+.inline-block{
+    display: inline-block;
+    background: rgb(4, 208, 239);
+    padding: 4px;  
+}
+
+article{
+    background: rgb(133, 89, 174);
+}
+
+aside{                                                                                                                                                                                                                                                                                                                                                                                                                                             
+    background: rgb(236, 163, 68);
+    border-left: 4px solid rgb(239, 11, 11);
+}

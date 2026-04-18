@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IronForge Gym | Membership Plans</title>
+<link rel="stylesheet" href="membership-plans.css">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<nav class="navbar" id="navbar">
+  <a href="index.html" class="nav-logo">IRON<span>FORGE</span></a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="trainers.html">Trainers</a></li>
+    <li><a href="schedule.html">Schedule</a></li>
+    <li><a href="online-classes.html">Online Classes</a></li>
+    <li><a href="membership-plans.html" class="active">Plans</a></li>
+  </ul>
+  <div class="nav-cta">
+    <a href="login.html" class="btn-nav-login">Login</a>
+    <a href="join-modal.html" class="btn-nav-join">Join Now</a>
+  </div>
+  <button class="hamburger" onclick="toggleMenu()">☰</button>
+</nav>
+
+<!-- ===== HERO ===== -->
+<section class="plans-hero">
+  <div class="hero-bg"><div class="hero-grid"></div><div class="hero-glow"></div></div>
+  <div class="plans-hero-content">
+    <span class="section-tag reveal">MEMBERSHIP PLANS</span>
+    <h1 class="reveal">INVEST IN<br><span>YOUR</span><br>GREATEST<br><span class="white">ASSET.</span></h1>
+    <p class="reveal">No hidden fees. No long-term lock-ins. Just world-class training at a price that works for you. Cancel anytime.</p>
+    <div class="billing-toggle reveal">
+      <span class="toggle-label" id="monthlyLabel">Monthly</span>
+      <div class="toggle-switch" id="billingToggle" onclick="toggleBilling()">
+        <div class="toggle-knob"></div>
+      </div>
+      <span class="toggle-label" id="annualLabel">Annual <span class="save-badge">SAVE 20%</span></span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PLANS GRID ===== -->
+<section class="plans-section">
+  <div class="container">
+    <div class="plans-grid">
+
+      <!-- STARTER -->
+      <div class="plan-card reveal" data-plan="starter">
+        <div class="plan-header">
+          <div class="plan-icon">🌱</div>
+          <div class="plan-tier">STARTER</div>
+          <p class="plan-tagline">Perfect for beginners ready to start their journey</p>
+          <div class="plan-price-wrap">
+            <div class="plan-price">
+              <span class="currency">₹</span>
+              <span class="amount monthly-price">999</span>
+              <span class="amount annual-price" style="display:none">799</span>
+              <span class="period">/mo</span>
+            </div>
+            <p class="annual-note monthly-note">Billed monthly</p>
+            <p class="annual-note annual-only" style="display:none">₹9,588/year · Save ₹2,400</p>
+          </div>
+        </div>
+        <div class="plan-body">
+          <ul class="features-list">
+            <li class="yes">Gym Access (6AM–10PM)</li>
+            <li class="yes">All Cardio Equipment</li>
+            <li class="yes">Free Weights Zone</li>
+            <li class="yes">Locker Room Access</li>
+            <li class="yes">1 Group Class/week</li>
+            <li class="yes">IronForge App Access</li>
+            <li class="no">Personal Trainer</li>
+            <li class="no">Nutrition Consultation</li>
+            <li class="no">24/7 Access</li>
+            <li class="no">Premium Recovery Suite</li>
+          </ul>
+          <button class="btn-plan" onclick="selectPlan('Starter', '999')">Get Started →</button>
+          <p class="plan-note">🔒 No contract · Cancel anytime</p>
+        </div>
+      </div>
+
+      <!-- PRO (POPULAR) -->
+      <div class="plan-card popular reveal" data-plan="pro">
+        <div class="popular-ribbon">⭐ MOST POPULAR</div>
+        <div class="plan-header">
+          <div class="plan-icon">⚡</div>
+          <div class="plan-tier">PRO</div>
+          <p class="plan-tagline">The complete package for serious athletes</p>
+          <div class="plan-price-wrap">
+            <div class="plan-price">
+              <span class="currency">₹</span>
+              <span class="amount monthly-price">1999</span>
+              <span class="amount annual-price" style="display:none">1599</span>
+              <span class="period">/mo</span>
+            </div>
+            <p class="annual-note monthly-note">Billed monthly</p>
+            <p class="annual-note annual-only" style="display:none">₹19,188/year · Save ₹4,800</p>
+          </div>
+        </div>
+        <div class="plan-body">
+          <ul class="features-list">
+            <li class="yes">24/7 Gym Access</li>
+            <li class="yes">All Equipment & Zones</li>
+            <li class="yes">Premium Locker Room</li>
+            <li class="yes">Unlimited Group Classes</li>
+            <li class="yes">Personal Trainer (2x/week)</li>
+            <li class="yes">Monthly Nutrition Consult</li>
+            <li class="yes">IronForge App + Analytics</li>
+            <li class="yes">Progress Tracking Dashboard</li>
+            <li class="no">Daily Personal Training</li>
+            <li class="no">VIP Recovery Suite</li>
+          </ul>
+          <button class="btn-plan popular-btn" onclick="selectPlan('Pro', '1999')">Get Pro →</button>
+          <p class="plan-note">🔒 No contract · Cancel anytime</p>
+        </div>
+      </div>
+
+      <!-- ELITE -->
+      <div class="plan-card reveal" data-plan="elite">
+        <div class="plan-header">
+          <div class="plan-icon">👑</div>
+          <div class="plan-tier">ELITE</div>
+          <p class="plan-tagline">The ultimate IronForge VIP experience</p>
+          <div class="plan-price-wrap">
+            <div class="plan-price">
+              <span class="currency">₹</span>
+              <span class="amount monthly-price">3499</span>
+              <span class="amount annual-price" style="display:none">2799</span>
+              <span class="period">/mo</span>
+            </div>
+            <p class="annual-note monthly-note">Billed monthly</p>
+            <p class="annual-note annual-only" style="display:none">₹33,588/year · Save ₹8,400</p>
+          </div>
+        </div>
+        <div class="plan-body">
+          <ul class="features-list">
+            <li class="yes">24/7 VIP Access</li>
+            <li class="yes">All Equipment & Premium Zones</li>
+            <li class="yes">VIP Locker Suite</li>
+            <li class="yes">All Group Classes</li>
+            <li class="yes">Daily Personal Training</li>
+            <li class="yes">Custom Nutrition Plan</li>
+            <li class="yes">Full App + Priority Support</li>
+            <li class="yes">Body Composition Analysis</li>
+            <li class="yes">VIP Recovery Suite Access</li>
+            <li class="yes">Exclusive Member Events</li>
+          </ul>
+          <button class="btn-plan" onclick="selectPlan('Elite', '3499')">Get Elite →</button>
+          <p class="plan-note">🔒 No contract · Cancel anytime</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ONLINE PLAN -->
+    <div class="online-plan reveal">
+      <div class="online-left">
+        <span class="online-badge">📱 ONLINE ONLY</span>
+        <h3>IronForge Digital</h3>
+        <p>Full access to our coaching app, workout library, nutrition tracker and live virtual sessions — from anywhere in the world.</p>
+      </div>
+      <div class="online-center">
+        <div class="online-features">
+          <span>✅ Workout Builder</span>
+          <span>✅ Nutrition Tracker</span>
+          <span>✅ Live Virtual Classes</span>
+          <span>✅ Progress Analytics</span>
+        </div>
+      </div>
+      <div class="online-right">
+        <div class="online-price">₹<strong class="online-monthly">499</strong><span>/mo</span></div>
+        <button class="btn-plan-outline" onclick="selectPlan('Digital', '499')">Get Digital →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== COMPARISON TABLE ===== -->
+<section class="comparison-section">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-tag">COMPARE PLANS</span>
+      <h2>Feature <span>Breakdown</span></h2>
+    </div>
+    <div class="comparison-table reveal">
+      <table>
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th>Starter</th>
+            <th class="popular-col">Pro ⭐</th>
+            <th>Elite</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Gym Access Hours</td><td>6AM–10PM</td><td class="popular-col">24/7</td><td>24/7 VIP</td></tr>
+          <tr><td>Group Classes</td><td>1/week</td><td class="popular-col">Unlimited</td><td>Unlimited</td></tr>
+          <tr><td>Personal Trainer</td><td>❌</td><td class="popular-col">2x/week</td><td>Daily</td></tr>
+          <tr><td>Nutrition Plan</td><td>❌</td><td class="popular-col">Monthly consult</td><td>Custom plan</td></tr>
+          <tr><td>App Access</td><td>Basic</td><td class="popular-col">Full + Analytics</td><td>Full + Priority</td></tr>
+          <tr><td>Locker Room</td><td>Standard</td><td class="popular-col">Premium</td><td>VIP Suite</td></tr>
+          <tr><td>Recovery Suite</td><td>❌</td><td class="popular-col">❌</td><td>✅ Full Access</td></tr>
+          <tr><td>Body Analysis</td><td>❌</td><td class="popular-col">Quarterly</td><td>Monthly</td></tr>
+          <tr><td>Member Events</td><td>❌</td><td class="popular-col">Selected</td><td>All Events VIP</td></tr>
+          <tr><td>Guest Passes</td><td>❌</td><td class="popular-col">2/month</td><td>5/month</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="faq-section">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-tag">FAQ</span>
+      <h2>Common <span>Questions</span></h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item reveal">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span>Can I cancel my membership anytime?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">Yes! All IronForge memberships are month-to-month with no long-term contracts. You can cancel anytime with 30 days notice and we'll never charge you again.</div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span>Is there a joining fee?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">No joining fees ever. What you see is what you pay. We believe in complete transparency with our pricing.</div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span>Can I upgrade or downgrade my plan?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">Absolutely. You can switch plans at any time. Upgrades take effect immediately. Downgrades apply at the start of your next billing cycle.</div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span>What is included in the free trial?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">Your first 7 days are completely free with full Pro access. No credit card required. After the trial, you choose which plan suits you best.</div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span>Are there student or senior discounts?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">Yes! We offer 20% discount for students with valid ID and 15% discount for seniors above 60. Visit our help center or speak to our team to apply your discount.</div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span>Can I freeze my membership?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">Yes. Pro and Elite members can freeze their membership for up to 2 months per year at no extra charge. Perfect for holidays or injury recovery.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SIGNUP MODAL ===== -->
+<div class="modal-overlay" id="modalOverlay" onclick="closeModal()">
+  <div class="modal" onclick="event.stopPropagation()">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div class="modal-header">
+      <div class="modal-icon" id="modalIcon"></div>
+      <h3>Join IronForge</h3>
+      <p>You selected: <strong id="modalPlanName"></strong> — <span id="modalPlanPrice"></span>/mo</p>
+    </div>
+    <div class="modal-body">
+      <div class="input-group"><label>Full Name</label><input type="text" id="signupName" placeholder="Your full name" class="modal-input"></div>
+      <div class="input-group"><label>Email Address</label><input type="email" id="signupEmail" placeholder="Your email address" class="modal-input"></div>
+      <div class="input-group"><label>Phone Number</label><input type="tel" id="signupPhone" placeholder="Your phone number" class="modal-input"></div>
+      <div class="input-group"><label>Goal</label>
+        <select id="signupGoal" class="modal-input modal-select">
+          <option value="">Select your primary goal</option>
+          <option>Lose Weight & Get Lean</option>
+          <option>Build Muscle & Strength</option>
+          <option>Improve Fitness & Endurance</option>
+          <option>Learn Combat Sports</option>
+          <option>General Health & Wellness</option>
+        </select>
+      </div>
+      <button class="btn-confirm" onclick="confirmSignup()">🚀 Start My Free Trial</button>
+      <p class="modal-footnote">By signing up you agree to our <a href="privacy-policy.html">Privacy Policy</a>. First 7 days free.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ===== TOAST ===== -->
+<div class="toast" id="toast"></div>
+
+<!-- ===== CTA ===== -->
+<section class="cta-section reveal">
+  <div class="cta-bg"></div>
+  <div class="cta-content">
+    <h2>FIRST WEEK <span>FREE.</span><br>NO EXCUSES.</h2>
+    <p>Try any plan completely free for 7 days. No credit card. No commitment. Just results.</p>
+    <div class="cta-btns">
+      <a href="join-modal.html" class="btn btn-accent">Claim Free Trial</a>
+      <a href="trainers.html" class="btn btn-outline">Meet Our Coaches</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <span class="nav-logo">IRON<span>FORGE</span></span>
+      <p>Puducherry's premier fitness destination. Where ordinary people build extraordinary bodies.</p>
+      <div class="footer-socials"><a href="#">📘</a><a href="#">📸</a><a href="#">🐦</a><a href="#">▶️</a></div>
+    </div>
+    <div class="footer-col"><h4>Navigate</h4><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="trainers.html">Trainers</a></li><li><a href="schedule.html">Schedule</a></li><li><a href="membership-plans.html">Plans</a></li></ul></div>
+    <div class="footer-col"><h4>Member</h4><ul><li><a href="login.html">Login</a></li><li><a href="signup.html">Sign Up</a></li><li><a href="dashboard.html">Dashboard</a></li><li><a href="progress-chart.html">Progress</a></li></ul></div>
+    <div class="footer-col"><h4>Support</h4><ul><li><a href="help-center.html">Help Center</a></li><li><a href="privacy-policy.html">Privacy Policy</a></li><li><a href="community-feed.html">Community</a></li></ul></div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 IronForge Gym, Puducherry. All rights reserved.</p>
+    <div class="footer-socials"><a href="#">📘</a><a href="#">📸</a><a href="#">🐦</a><a href="#">▶️</a></div>
+  </div>
+</footer>
+
+<script src="membership-plans.js"></script>
+</body>
+</html>

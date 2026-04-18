@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IronForge | Dashboard</title>
+<link rel="stylesheet" href="dashboard.css">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- ===== SIDEBAR ===== -->
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-logo"><a href="index.html" class="logo">IRON<span>FORGE</span></a></div>
+  <nav class="sidebar-nav">
+    <div class="nav-section-label">MAIN</div>
+    <a href="dashboard.html" class="nav-item active"><span class="nav-icon">📊</span><span class="nav-label">Dashboard</span></a>
+    <a href="activity-log.html" class="nav-item"><span class="nav-icon">📋</span><span class="nav-label">Activity Log</span></a>
+    <a href="workout-builder.html" class="nav-item"><span class="nav-icon">🏋️</span><span class="nav-label">Workout Builder</span></a>
+    <a href="exercise-library.html" class="nav-item"><span class="nav-icon">📚</span><span class="nav-label">Exercise Library</span></a>
+    <div class="nav-section-label">HEALTH</div>
+    <a href="nutrition-tracker.html" class="nav-item"><span class="nav-icon">🥗</span><span class="nav-label">Nutrition</span></a>
+    <a href="progress-charts.html" class="nav-item"><span class="nav-icon">📈</span><span class="nav-label">Progress</span></a>
+    <div class="nav-section-label">CLASSES</div>
+    <a href="schedule.html" class="nav-item"><span class="nav-icon">📅</span><span class="nav-label">Gym Schedule</span></a>
+    <a href="online-classes.html" class="nav-item"><span class="nav-icon">💻</span><span class="nav-label">Online Classes</span></a>
+    <div class="nav-section-label">COMMUNITY</div>
+    <a href="community-feed.html" class="nav-item"><span class="nav-icon">👥</span><span class="nav-label">Community</span></a>
+    <a href="leaderboard.html" class="nav-item"><span class="nav-icon">🏆</span><span class="nav-label">Leaderboard</span></a>
+    <a href="achievement-badges.html" class="nav-item"><span class="nav-icon">🎖️</span><span class="nav-label">Achievements</span><span class="nav-badge">3</span></a>
+    <div class="nav-section-label">ACCOUNT</div>
+    <a href="settings-profile.html" class="nav-item"><span class="nav-icon">⚙️</span><span class="nav-label">Settings</span></a>
+    <a href="help-center.html" class="nav-item"><span class="nav-icon">❓</span><span class="nav-label">Help</span></a>
+  </nav>
+  <div class="sidebar-plan">
+    <div class="plan-badge">⚡ PRO MEMBER</div>
+    <p>21 days remaining</p>
+    <a href="membership-plans.html" class="btn-renew">Renew Plan</a>
+  </div>
+</aside>
+
+<!-- MOBILE TOPBAR -->
+<div class="mobile-topbar">
+  <button class="hamburger-dash" onclick="toggleSidebar()">☰</button>
+  <span class="logo">IRON<span>FORGE</span></span>
+  <div class="topbar-avatar" id="mobileAvatar">R</div>
+</div>
+<div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleSidebar()"></div>
+
+<!-- ===== MAIN ===== -->
+<main class="main-content">
+
+  <!-- ── TOPBAR ── -->
+  <header class="topbar">
+    <div class="topbar-left">
+      <div class="greeting-wrap">
+        <h1 id="greeting">Good morning, <span id="userName">Warrior</span> 👊</h1>
+        <p id="dateDisplay">Thursday, 26 March 2026</p>
+      </div>
+    </div>
+    <div class="topbar-right">
+      <button class="topbar-btn" onclick="window.location='activity-log.html'">+ Log Workout</button>
+      <div class="avatar-wrap">
+        <div class="avatar" id="topAvatar">R</div>
+        <div class="avatar-status"></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ── STREAK BANNER ── -->
+  <div class="streak-banner" id="streakBanner">
+    <div class="streak-fire">🔥</div>
+    <div class="streak-text">
+      <strong id="streakTitle">12-Day Streak!</strong>
+      <span>You're on fire. Keep showing up every day to hit your 30-day goal.</span>
+    </div>
+    <div class="streak-progress">
+      <div class="streak-bar"><div class="streak-fill" id="streakFill" style="width:40%"></div></div>
+      <span id="streakLabel">12 / 30 days</span>
+    </div>
+  </div>
+
+  <!-- ── STAT CARDS ── -->
+  <div class="stats-grid">
+    <div class="stat-card" style="--card-accent:#ff4500">
+      <div class="stat-icon-wrap fire"><span>🔥</span></div>
+      <div class="stat-body">
+        <div class="stat-num" data-target="12" id="sc1">0</div>
+        <div class="stat-label">Day Streak</div>
+        <div class="stat-delta up">↑ +3 this week</div>
+      </div>
+      <div class="stat-glow" style="background:rgba(255,69,0,0.12)"></div>
+    </div>
+    <div class="stat-card" style="--card-accent:#FFD700">
+      <div class="stat-icon-wrap gold"><span>🏋️</span></div>
+      <div class="stat-body">
+        <div class="stat-num" data-target="47" id="sc2">0</div>
+        <div class="stat-label">Total Workouts</div>
+        <div class="stat-delta up">↑ +5 this month</div>
+      </div>
+      <div class="stat-glow" style="background:rgba(255,215,0,0.08)"></div>
+    </div>
+    <div class="stat-card" style="--card-accent:#00c851">
+      <div class="stat-icon-wrap green"><span>📅</span></div>
+      <div class="stat-body">
+        <div class="stat-num" id="dashClassCount">0</div>
+        <div class="stat-label">Classes Booked</div>
+        <div class="stat-delta" id="dashClassDelta" style="color:#555">Loading…</div>
+      </div>
+      <div class="stat-glow" style="background:rgba(0,200,81,0.08)"></div>
+    </div>
+    <div class="stat-card" style="--card-accent:#3b82f6">
+      <div class="stat-icon-wrap blue"><span>💻</span></div>
+      <div class="stat-body">
+        <div class="stat-num" id="dashOnlineCount">0</div>
+        <div class="stat-label">Online Classes</div>
+        <div class="stat-delta" id="dashOnlineDelta" style="color:#555">Loading…</div>
+      </div>
+      <div class="stat-glow" style="background:rgba(59,130,246,0.08)"></div>
+    </div>
+  </div>
+
+  <!-- ── QUICK ACTIONS ── -->
+  <div class="quick-actions-section">
+    <div class="section-label-row">
+      <span class="section-label">⚡ QUICK ACTIONS</span>
+    </div>
+    <div class="quick-actions-grid">
+      <a href="schedule.html" class="qa-btn qa-gym">
+        <span class="qa-icon">🏋️</span>
+        <span class="qa-label">Book Gym Class</span>
+        <span class="qa-arrow">→</span>
+      </a>
+      <a href="online-classes.html" class="qa-btn qa-online">
+        <span class="qa-icon">💻</span>
+        <span class="qa-label">Join Online Class</span>
+        <span class="qa-arrow">→</span>
+      </a>
+      <a href="activity-log.html" class="qa-btn qa-log">
+        <span class="qa-icon">📋</span>
+        <span class="qa-label">Log Workout</span>
+        <span class="qa-arrow">→</span>
+      </a>
+      <a href="workout-builder.html" class="qa-btn qa-build">
+        <span class="qa-icon">🔨</span>
+        <span class="qa-label">Build Workout</span>
+        <span class="qa-arrow">→</span>
+      </a>
+      <a href="nutrition-tracker.html" class="qa-btn qa-nutrition">
+        <span class="qa-icon">🥗</span>
+        <span class="qa-label">Track Nutrition</span>
+        <span class="qa-arrow">→</span>
+      </a>
+      <a href="progress-charts.html" class="qa-btn qa-progress">
+        <span class="qa-icon">📈</span>
+        <span class="qa-label">View Progress</span>
+        <span class="qa-arrow">→</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- ── MAIN GRID ── -->
+  <div class="dashboard-grid">
+
+    <!-- LEFT COLUMN -->
+    <div class="col-left">
+
+      <!-- WEEKLY ACTIVITY CHART -->
+      <div class="widget">
+        <div class="widget-header">
+          <h3>Weekly Activity</h3>
+          <div class="widget-tabs">
+            <button class="wtab active" onclick="switchChartTab(this,'workouts')">Workouts</button>
+            <button class="wtab" onclick="switchChartTab(this,'calories')">Calories</button>
+          </div>
+        </div>
+        <div class="chart-container" id="weeklyChart">
+          <div class="chart-bars" id="chartBars"></div>
+          <div class="chart-labels" id="chartLabels"></div>
+        </div>
+      </div>
+
+      <!-- UPCOMING CLASSES -->
+      <div class="widget">
+        <div class="widget-header">
+          <h3>Upcoming Classes</h3>
+          <a href="schedule.html" class="widget-link">Book More →</a>
+        </div>
+        <div class="classes-list" id="dashClassesList">
+          <div style="padding:1.5rem;text-align:center;color:#444;font-size:0.82rem;">Loading…</div>
+        </div>
+      </div>
+
+      <!-- WEEKLY CLASS PROGRESS -->
+      <div class="widget" id="weeklyClassProgressWidget">
+        <div class="widget-header">
+          <h3>This Week's Class Progress</h3>
+          <a href="schedule.html" class="widget-link" id="wcpLink">Book More →</a>
+        </div>
+        <div id="weeklyClassProgress">
+          <div style="padding:1.5rem;text-align:center;color:#444;font-size:0.82rem;">Loading…</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- RIGHT COLUMN -->
+    <div class="col-right">
+
+      <!-- TODAY'S WORKOUT -->
+      <div class="widget today-workout">
+        <div class="widget-header">
+          <h3>Today's Workout</h3>
+          <span class="workout-badge">Upper Body</span>
+        </div>
+        <div class="workout-exercises">
+          <div class="exercise-row done">
+            <span class="ex-check">✅</span>
+            <div class="ex-info"><strong>Bench Press</strong><span>4 sets × 8 reps · 80kg</span></div>
+            <span class="ex-status">Done</span>
+          </div>
+          <div class="exercise-row done">
+            <span class="ex-check">✅</span>
+            <div class="ex-info"><strong>Pull-Ups</strong><span>4 sets × 10 reps · BW</span></div>
+            <span class="ex-status">Done</span>
+          </div>
+          <div class="exercise-row active">
+            <span class="ex-check">🔄</span>
+            <div class="ex-info"><strong>Overhead Press</strong><span>3 sets × 10 reps · 50kg</span></div>
+            <span class="ex-status active-lbl">Up Next</span>
+          </div>
+          <div class="exercise-row">
+            <span class="ex-check">⬜</span>
+            <div class="ex-info"><strong>Dumbbell Rows</strong><span>3 sets × 12 reps · 22kg</span></div>
+            <span class="ex-status">Pending</span>
+          </div>
+          <div class="exercise-row">
+            <span class="ex-check">⬜</span>
+            <div class="ex-info"><strong>Face Pulls</strong><span>3 sets × 15 reps · 20kg</span></div>
+            <span class="ex-status">Pending</span>
+          </div>
+        </div>
+        <div class="workout-progress-wrap">
+          <span>Progress: 2/5 exercises</span>
+          <div class="workout-progress-bar"><div class="workout-progress-fill" style="width:40%"></div></div>
+        </div>
+        <a href="workout-builder.html" class="btn-start-workout">▶ Continue Workout</a>
+      </div>
+
+      <!-- PERSONAL RECORDS -->
+      <div class="widget">
+        <div class="widget-header">
+          <h3>Personal Records 🏆</h3>
+          <a href="progress-charts.html" class="widget-link">View All →</a>
+        </div>
+        <div class="pr-list">
+          <div class="pr-item">
+            <div class="pr-left">
+              <span class="pr-emoji">🏋️</span>
+              <div><strong>Bench Press</strong><span>1RM</span></div>
+            </div>
+            <div class="pr-right"><span class="pr-val">110 kg</span><span class="pr-new">🔥 New!</span></div>
+          </div>
+          <div class="pr-item">
+            <div class="pr-left">
+              <span class="pr-emoji">🦵</span>
+              <div><strong>Squat</strong><span>1RM</span></div>
+            </div>
+            <div class="pr-right"><span class="pr-val">140 kg</span></div>
+          </div>
+          <div class="pr-item">
+            <div class="pr-left">
+              <span class="pr-emoji">🔩</span>
+              <div><strong>Deadlift</strong><span>1RM</span></div>
+            </div>
+            <div class="pr-right"><span class="pr-val">165 kg</span></div>
+          </div>
+          <div class="pr-item">
+            <div class="pr-left">
+              <span class="pr-emoji">💪</span>
+              <div><strong>OHP</strong><span>1RM</span></div>
+            </div>
+            <div class="pr-right"><span class="pr-val">72 kg</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ACTIVITY FEED / RECENT -->
+      <div class="widget activity-widget">
+        <div class="widget-header">
+          <h3>Recent Activity</h3>
+          <a href="activity-log.html" class="widget-link">View All →</a>
+        </div>
+        <div class="activity-feed" id="activityFeed">
+          <div class="activity-item strength">
+            <div class="act-dot"></div>
+            <div class="act-body">
+              <strong>Upper Body Strength</strong>
+              <span>Today · 60 min · 420 kcal</span>
+            </div>
+            <span class="act-badge strength-b">Strength</span>
+          </div>
+          <div class="activity-item cardio">
+            <div class="act-dot"></div>
+            <div class="act-body">
+              <strong>Morning HIIT Blast</strong>
+              <span>Yesterday · 45 min · 380 kcal</span>
+            </div>
+            <span class="act-badge cardio-b">Cardio</span>
+          </div>
+          <div class="activity-item wellness">
+            <div class="act-dot"></div>
+            <div class="act-body">
+              <strong>Yoga Flow & Mobility</strong>
+              <span>2 days ago · 60 min · 180 kcal</span>
+            </div>
+            <span class="act-badge wellness-b">Wellness</span>
+          </div>
+          <div class="activity-item combat">
+            <div class="act-dot"></div>
+            <div class="act-body">
+              <strong>Boxing Fundamentals</strong>
+              <span>3 days ago · 60 min · 520 kcal</span>
+            </div>
+            <span class="act-badge combat-b">Combat</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</main>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<script src="dashboard.js"></script>
+</body>
+</html>

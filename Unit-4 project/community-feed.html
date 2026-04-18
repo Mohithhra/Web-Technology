@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IronForge | Community</title>
+<link rel="stylesheet" href="community-feed.css">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- ===== SIDEBAR ===== -->
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-logo"><a href="index.html" class="logo">IRON<span>FORGE</span></a></div>
+  <nav class="sidebar-nav">
+    <div class="nav-section-label">MAIN</div>
+    <a href="dashboard.html" class="nav-item"><span class="nav-icon">📊</span><span class="nav-label">Dashboard</span></a>
+    <a href="activity-log.html" class="nav-item"><span class="nav-icon">📋</span><span class="nav-label">Activity Log</span></a>
+    <a href="workout-builder.html" class="nav-item"><span class="nav-icon">🏋️</span><span class="nav-label">Workout Builder</span></a>
+    <a href="exercise-library.html" class="nav-item"><span class="nav-icon">📚</span><span class="nav-label">Exercise Library</span></a>
+    <div class="nav-section-label">HEALTH</div>
+    <a href="nutrition-tracker.html" class="nav-item"><span class="nav-icon">🥗</span><span class="nav-label">Nutrition</span></a>
+    <a href="progress-chart.html" class="nav-item"><span class="nav-icon">📈</span><span class="nav-label">Progress</span></a>
+    <div class="nav-section-label">COMMUNITY</div>
+    <a href="community-feed.html" class="nav-item active"><span class="nav-icon">👥</span><span class="nav-label">Community</span></a>
+    <a href="leaderboard.html" class="nav-item"><span class="nav-icon">🏆</span><span class="nav-label">Leaderboard</span></a>
+    <a href="achievement-badges.html" class="nav-item"><span class="nav-icon">🎖️</span><span class="nav-label">Achievements</span><span class="nav-badge">3</span></a>
+    <div class="nav-section-label">ACCOUNT</div>
+    <a href="settings-profile.html" class="nav-item"><span class="nav-icon">⚙️</span><span class="nav-label">Settings</span></a>
+    <a href="help-center.html" class="nav-item"><span class="nav-icon">❓</span><span class="nav-label">Help</span></a>
+  </nav>
+  <div class="sidebar-plan">
+    <div class="plan-badge">⚡ PRO MEMBER</div>
+    <p>21 days remaining</p>
+    <a href="membership-plans.html" class="btn-renew">Renew Plan</a>
+  </div>
+</aside>
+
+<!-- MOBILE TOPBAR -->
+<div class="mobile-topbar">
+  <button class="hamburger-dash" onclick="toggleSidebar()">☰</button>
+  <span class="logo">IRON<span>FORGE</span></span>
+  <div class="topbar-avatar">M</div>
+</div>
+<div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleSidebar()"></div>
+
+<!-- ===== MAIN ===== -->
+<main class="main-content">
+
+  <!-- TOPBAR -->
+  <header class="topbar">
+    <div class="topbar-left">
+      <h1>Community <span>Feed</span></h1>
+      <p>248 members active today</p>
+    </div>
+    <div class="topbar-right">
+      <button class="topbar-btn primary" onclick="openPostModal()">✏️ Share Post</button>
+      <div class="avatar-wrap"><div class="avatar">M</div><div class="avatar-status"></div></div>
+    </div>
+  </header>
+
+  <!-- FEED LAYOUT -->
+  <div class="feed-layout">
+
+    <!-- ===== LEFT: MAIN FEED ===== -->
+    <div class="feed-main">
+
+      <!-- COMPOSE BOX -->
+      <div class="compose-box" onclick="openPostModal()">
+        <div class="compose-avatar">M</div>
+        <div class="compose-placeholder">Share a workout, milestone or tip with the community...</div>
+        <div class="compose-actions">
+          <button class="compose-btn" onclick="event.stopPropagation();openPostModal('workout')">🏋️ Workout</button>
+          <button class="compose-btn" onclick="event.stopPropagation();openPostModal('pr')">🏆 PR</button>
+          <button class="compose-btn" onclick="event.stopPropagation();openPostModal('tip')">💡 Tip</button>
+        </div>
+      </div>
+
+      <!-- FEED TABS -->
+      <div class="feed-tabs">
+        <button class="ftab active" data-tab="all" onclick="switchTab(this,'all')">🔥 For You</button>
+        <button class="ftab" data-tab="workout" onclick="switchTab(this,'workout')">🏋️ Workouts</button>
+        <button class="ftab" data-tab="pr" onclick="switchTab(this,'pr')">🏆 PRs</button>
+        <button class="ftab" data-tab="tip" onclick="switchTab(this,'tip')">💡 Tips</button>
+        <button class="ftab" data-tab="milestone" onclick="switchTab(this,'milestone')">🎯 Milestones</button>
+      </div>
+
+      <!-- POSTS FEED -->
+      <div class="posts-feed" id="postsFeed"></div>
+
+    </div>
+
+    <!-- ===== RIGHT: SIDEBAR ===== -->
+    <div class="feed-sidebar">
+
+      <!-- CHALLENGES -->
+      <div class="widget-card">
+        <div class="widget-header">
+          <h4>🔥 Active Challenges</h4>
+          <span class="widget-badge">3 live</span>
+        </div>
+        <div class="challenges-list">
+          <div class="challenge-item">
+            <div class="challenge-icon">💪</div>
+            <div class="challenge-body">
+              <strong>30-Day Push-Up</strong>
+              <span>142 members · 18 days left</span>
+              <div class="challenge-bar-bg"><div class="challenge-bar" style="width:40%"></div></div>
+            </div>
+            <button class="btn-join" onclick="joinChallenge(this)">Join</button>
+          </div>
+          <div class="challenge-item">
+            <div class="challenge-icon">🏃</div>
+            <div class="challenge-body">
+              <strong>5K Every Week</strong>
+              <span>89 members · 6 days left</span>
+              <div class="challenge-bar-bg"><div class="challenge-bar" style="width:70%"></div></div>
+            </div>
+            <button class="btn-join joined" onclick="joinChallenge(this)">✓ In</button>
+          </div>
+          <div class="challenge-item">
+            <div class="challenge-icon">🥗</div>
+            <div class="challenge-body">
+              <strong>Clean Eating Week</strong>
+              <span>213 members · 3 days left</span>
+              <div class="challenge-bar-bg"><div class="challenge-bar" style="width:85%"></div></div>
+            </div>
+            <button class="btn-join" onclick="joinChallenge(this)">Join</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- TOP MEMBERS -->
+      <div class="widget-card">
+        <div class="widget-header">
+          <h4>🏆 Top Members</h4>
+          <a href="leaderboard.html" class="widget-link">View all →</a>
+        </div>
+        <div class="top-members-list" id="topMembersList"></div>
+      </div>
+
+      <!-- TRENDING TAGS -->
+      <div class="widget-card">
+        <div class="widget-header"><h4>🔖 Trending Tags</h4></div>
+        <div class="tags-cloud" id="tagsCloud"></div>
+      </div>
+
+    </div>
+  </div>
+
+</main>
+
+<!-- ===== POST MODAL ===== -->
+<div class="modal-overlay" id="modalOverlay" onclick="closeModal()">
+  <div class="modal" onclick="event.stopPropagation()">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div class="modal-header">
+      <div class="modal-avatar">M</div>
+      <div><h3>Share with the Community</h3><p>Rajesh Kumar · Pro Member</p></div>
+    </div>
+    <div class="modal-body">
+      <!-- Post type -->
+      <div class="post-type-row" id="postTypeRow">
+        <button class="ptype-btn active" data-type="workout" onclick="selectType(this)">🏋️ Workout</button>
+        <button class="ptype-btn" data-type="pr" onclick="selectType(this)">🏆 PR</button>
+        <button class="ptype-btn" data-type="tip" onclick="selectType(this)">💡 Tip</button>
+        <button class="ptype-btn" data-type="milestone" onclick="selectType(this)">🎯 Milestone</button>
+        <button class="ptype-btn" data-type="question" onclick="selectType(this)">❓ Question</button>
+      </div>
+      <!-- Content -->
+      <textarea id="postContent" class="post-textarea" placeholder="What's on your mind? Share a workout, PR, tip or achievement..."></textarea>
+      <!-- Extra fields -->
+      <div id="extraFields"></div>
+      <!-- Tags -->
+      <div class="input-group">
+        <label>Tags (optional)</label>
+        <input type="text" id="postTags" class="modal-input" placeholder="#strength #chest #gains">
+      </div>
+      <button class="btn-confirm" onclick="submitPost()">🚀 Post to Community</button>
+    </div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<script src="community-feed.js"></script>
+</body>
+</html>

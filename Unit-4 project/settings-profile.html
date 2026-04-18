@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IronForge | Settings</title>
+<link rel="stylesheet" href="settings-profile.css">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- ===== SIDEBAR ===== -->
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-logo"><a href="index.html" class="logo">IRON<span>FORGE</span></a></div>
+  <nav class="sidebar-nav">
+    <div class="nav-section-label">MAIN</div>
+    <a href="dashboard.html" class="nav-item"><span class="nav-icon">📊</span><span class="nav-label">Dashboard</span></a>
+    <a href="activity-log.html" class="nav-item"><span class="nav-icon">📋</span><span class="nav-label">Activity Log</span></a>
+    <a href="workout-builder.html" class="nav-item"><span class="nav-icon">🏋️</span><span class="nav-label">Workout Builder</span></a>
+    <a href="exercise-library.html" class="nav-item"><span class="nav-icon">📚</span><span class="nav-label">Exercise Library</span></a>
+    <div class="nav-section-label">HEALTH</div>
+    <a href="nutrition-tracker.html" class="nav-item"><span class="nav-icon">🥗</span><span class="nav-label">Nutrition</span></a>
+    <a href="progress-chart.html" class="nav-item"><span class="nav-icon">📈</span><span class="nav-label">Progress</span></a>
+    <div class="nav-section-label">COMMUNITY</div>
+    <a href="community-feed.html" class="nav-item"><span class="nav-icon">👥</span><span class="nav-label">Community</span></a>
+    <a href="leaderboard.html" class="nav-item"><span class="nav-icon">🏆</span><span class="nav-label">Leaderboard</span></a>
+    <a href="achievement-badges.html" class="nav-item"><span class="nav-icon">🎖️</span><span class="nav-label">Achievements</span><span class="nav-badge">3</span></a>
+    <div class="nav-section-label">ACCOUNT</div>
+    <a href="settings-profile.html" class="nav-item active"><span class="nav-icon">⚙️</span><span class="nav-label">Settings</span></a>
+    <a href="help-center.html" class="nav-item"><span class="nav-icon">❓</span><span class="nav-label">Help</span></a>
+  </nav>
+  <div class="sidebar-plan">
+    <div class="plan-badge">⚡ PRO MEMBER</div>
+    <p>21 days remaining</p>
+    <a href="membership-plans.html" class="btn-renew">Renew Plan</a>
+  </div>
+</aside>
+
+<!-- MOBILE TOPBAR -->
+<div class="mobile-topbar">
+  <button class="hamburger-dash" onclick="toggleSidebar()">☰</button>
+  <span class="logo">IRON<span>FORGE</span></span>
+  <div class="topbar-avatar">M</div>
+</div>
+<div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleSidebar()"></div>
+
+<!-- ===== MAIN ===== -->
+<main class="main-content">
+
+  <header class="topbar">
+    <div class="topbar-left">
+      <h1>Settings & <span>Profile</span></h1>
+      <p>Manage your account and preferences</p>
+    </div>
+    <div class="topbar-right">
+      <button class="btn-save" id="globalSaveBtn" onclick="saveAll()">💾 Save Changes</button>
+      <div class="avatar-wrap"><div class="avatar">M</div><div class="avatar-status"></div></div>
+    </div>
+  </header>
+
+  <div class="settings-layout">
+
+    <!-- LEFT NAV -->
+    <nav class="settings-nav">
+      <button class="snav-item active" data-section="profile" onclick="switchSection(this,'profile')">👤 Profile</button>
+      <button class="snav-item" data-section="fitness" onclick="switchSection(this,'fitness')">🏋️ Fitness Goals</button>
+      <button class="snav-item" data-section="nutrition" onclick="switchSection(this,'nutrition')">🥗 Nutrition Goals</button>
+      <button class="snav-item" data-section="notifications" onclick="switchSection(this,'notifications')">🔔 Notifications</button>
+      <button class="snav-item" data-section="privacy" onclick="switchSection(this,'privacy')">🔒 Privacy</button>
+      <button class="snav-item" data-section="appearance" onclick="switchSection(this,'appearance')">🎨 Appearance</button>
+      <button class="snav-item danger" data-section="account" onclick="switchSection(this,'account')">⚠️ Account</button>
+    </nav>
+
+    <!-- RIGHT CONTENT -->
+    <div class="settings-content">
+
+      <!-- ── PROFILE ── -->
+      <section class="settings-section active" id="section-profile">
+        <div class="section-header"><h2>Profile Information</h2><p>Your public identity on IronForge</p></div>
+
+        <!-- Avatar -->
+        <div class="avatar-edit-row">
+          <div class="big-avatar" id="bigAvatar">M</div>
+          <div class="avatar-edit-info">
+            <strong>Mohithhra P</strong>
+            <span>Pro Member · Joined March 2025</span>
+            <div class="avatar-color-row" id="avatarColorRow"></div>
+          </div>
+        </div>
+
+        <div class="form-grid">
+          <div class="form-group">
+            <label>First Name</label>
+            <input type="text" id="firstName" class="form-input" value="Rajesh">
+          </div>
+          <div class="form-group">
+            <label>Last Name</label>
+            <input type="text" id="lastName" class="form-input" value="Kumar">
+          </div>
+          <div class="form-group full">
+            <label>Email Address</label>
+            <input type="email" id="email" class="form-input" value="rajesh.kumar@email.com">
+          </div>
+          <div class="form-group">
+            <label>Phone Number</label>
+            <input type="tel" id="phone" class="form-input" value="+91 98765 43210">
+          </div>
+          <div class="form-group">
+            <label>Date of Birth</label>
+            <input type="date" id="dob" class="form-input" value="1995-08-14">
+          </div>
+          <div class="form-group">
+            <label>Gender</label>
+            <select id="gender" class="form-input form-select">
+              <option value="male" selected>Male</option>
+              <option value="female">Female</option>
+              <option value="other">Other</option>
+              <option value="prefer-not">Prefer not to say</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>City</label>
+            <input type="text" id="city" class="form-input" value="Puducherry">
+          </div>
+          <div class="form-group full">
+            <label>Bio</label>
+            <textarea id="bio" class="form-input form-textarea" rows="3" placeholder="Tell the community about yourself...">Fitness enthusiast, strength training fanatic. Squatting since 2020. Chasing PRs every week. 💪</textarea>
+          </div>
+        </div>
+
+        <!-- Change Password -->
+        <div class="subsection-header"><h3>Change Password</h3></div>
+        <div class="form-grid">
+          <div class="form-group full">
+            <label>Current Password</label>
+            <div class="password-wrap">
+              <input type="password" id="currentPw" class="form-input" placeholder="Enter current password">
+              <button class="pw-toggle" onclick="togglePw('currentPw',this)">👁</button>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>New Password</label>
+            <div class="password-wrap">
+              <input type="password" id="newPw" class="form-input" placeholder="Min 8 characters">
+              <button class="pw-toggle" onclick="togglePw('newPw',this)">👁</button>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Confirm New Password</label>
+            <div class="password-wrap">
+              <input type="password" id="confirmPw" class="form-input" placeholder="Repeat new password">
+              <button class="pw-toggle" onclick="togglePw('confirmPw',this)">👁</button>
+            </div>
+          </div>
+        </div>
+        <button class="btn-secondary" onclick="changePassword()">🔑 Update Password</button>
+      </section>
+
+      <!-- ── FITNESS GOALS ── -->
+      <section class="settings-section" id="section-fitness">
+        <div class="section-header"><h2>Fitness Goals</h2><p>Set your training targets and physical stats</p></div>
+        <div class="form-grid">
+          <div class="form-group">
+            <label>Primary Goal</label>
+            <select id="primaryGoal" class="form-input form-select">
+              <option value="muscle">Build Muscle</option>
+              <option value="fat-loss" selected>Lose Fat</option>
+              <option value="strength">Gain Strength</option>
+              <option value="endurance">Build Endurance</option>
+              <option value="maintenance">Maintenance</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Experience Level</label>
+            <select id="expLevel" class="form-input form-select">
+              <option value="beginner">Beginner</option>
+              <option value="intermediate" selected>Intermediate</option>
+              <option value="advanced">Advanced</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Current Weight (kg)</label>
+            <input type="number" id="currentWeight" class="form-input" value="74.2" step="0.1">
+          </div>
+          <div class="form-group">
+            <label>Target Weight (kg)</label>
+            <input type="number" id="targetWeight" class="form-input" value="72.0" step="0.1">
+          </div>
+          <div class="form-group">
+            <label>Height (cm)</label>
+            <input type="number" id="height" class="form-input" value="178">
+          </div>
+          <div class="form-group">
+            <label>Workouts Per Week</label>
+            <select id="workoutsPerWeek" class="form-input form-select">
+              <option value="2">2x per week</option>
+              <option value="3">3x per week</option>
+              <option value="4">4x per week</option>
+              <option value="5" selected>5x per week</option>
+              <option value="6">6x per week</option>
+              <option value="7">7x per week</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Preferred Workout Time</label>
+            <select id="workoutTime" class="form-input form-select">
+              <option value="early-morning">Early Morning (5–7 AM)</option>
+              <option value="morning" selected>Morning (7–10 AM)</option>
+              <option value="afternoon">Afternoon (12–3 PM)</option>
+              <option value="evening">Evening (5–8 PM)</option>
+              <option value="night">Night (8 PM+)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Preferred Training Style</label>
+            <select id="trainingStyle" class="form-input form-select">
+              <option value="strength" selected>Strength Training</option>
+              <option value="hypertrophy">Hypertrophy</option>
+              <option value="powerlifting">Powerlifting</option>
+              <option value="crossfit">CrossFit</option>
+              <option value="cardio">Cardio Focus</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- BMI display -->
+        <div class="bmi-card" id="bmiCard"></div>
+      </section>
+
+      <!-- ── NUTRITION GOALS ── -->
+      <section class="settings-section" id="section-nutrition">
+        <div class="section-header"><h2>Nutrition Goals</h2><p>Set your daily macro and calorie targets</p></div>
+        <div class="tdee-banner" id="tdeeBanner"></div>
+        <div class="form-grid">
+          <div class="form-group">
+            <label>Daily Calorie Goal</label>
+            <input type="number" id="calGoal" class="form-input" value="2400">
+          </div>
+          <div class="form-group">
+            <label>Activity Level</label>
+            <select id="activityLevel" class="form-input form-select">
+              <option value="sedentary">Sedentary (desk job)</option>
+              <option value="light">Lightly Active (1–3 days/week)</option>
+              <option value="moderate" selected>Moderately Active (3–5 days)</option>
+              <option value="very">Very Active (6–7 days)</option>
+              <option value="extra">Extra Active (athlete)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Protein Goal (g/day)</label>
+            <input type="number" id="proteinGoal" class="form-input" value="180">
+          </div>
+          <div class="form-group">
+            <label>Carbohydrate Goal (g/day)</label>
+            <input type="number" id="carbGoal" class="form-input" value="280">
+          </div>
+          <div class="form-group">
+            <label>Fat Goal (g/day)</label>
+            <input type="number" id="fatGoal" class="form-input" value="70">
+          </div>
+          <div class="form-group">
+            <label>Water Goal (glasses/day)</label>
+            <input type="number" id="waterGoal" class="form-input" value="8" min="1" max="20">
+          </div>
+          <div class="form-group full">
+            <label>Dietary Preferences</label>
+            <div class="checkbox-row" id="dietPrefs">
+              <label class="check-label"><input type="checkbox" id="veg"> Vegetarian</label>
+              <label class="check-label"><input type="checkbox" id="vegan"> Vegan</label>
+              <label class="check-label"><input type="checkbox" id="gf"> Gluten Free</label>
+              <label class="check-label"><input type="checkbox" id="df"> Dairy Free</label>
+              <label class="check-label"><input type="checkbox" id="keto"> Keto</label>
+            </div>
+          </div>
+        </div>
+        <button class="btn-secondary" onclick="calcTDEE()">⚡ Auto-Calculate Goals</button>
+      </section>
+
+      <!-- ── NOTIFICATIONS ── -->
+      <section class="settings-section" id="section-notifications">
+        <div class="section-header"><h2>Notifications</h2><p>Control what IronForge notifies you about</p></div>
+        <div class="toggle-list">
+          <div class="toggle-item"><div class="toggle-info"><strong>Workout Reminders</strong><span>Daily reminder at your preferred workout time</span></div><label class="toggle-switch"><input type="checkbox" id="notifWorkout" checked><span class="slider"></span></label></div>
+          <div class="toggle-item"><div class="toggle-info"><strong>Streak Alerts</strong><span>Alert when your streak is at risk</span></div><label class="toggle-switch"><input type="checkbox" id="notifStreak" checked><span class="slider"></span></label></div>
+          <div class="toggle-item"><div class="toggle-info"><strong>Nutrition Reminders</strong><span>Remind me to log meals</span></div><label class="toggle-switch"><input type="checkbox" id="notifNutrition" checked><span class="slider"></span></label></div>
+          <div class="toggle-item"><div class="toggle-info"><strong>Achievement Unlocks</strong><span>Notify when you earn a badge</span></div><label class="toggle-switch"><input type="checkbox" id="notifBadge" checked><span class="slider"></span></label></div>
+          <div class="toggle-item"><div class="toggle-info"><strong>Community Activity</strong><span>Likes, comments and replies</span></div><label class="toggle-switch"><input type="checkbox" id="notifCommunity"><span class="slider"></span></label></div>
+          <div class="toggle-item"><div class="toggle-info"><strong>Leaderboard Changes</strong><span>When your rank changes</span></div><label class="toggle-switch"><input type="checkbox" id="notifLeaderboard" checked><span class="slider"></span></label></div>
+          <div class="toggle-item"><div class="toggle-info"><strong>Plan Renewal Reminders</strong><span>7 days before plan expires</span></div><label class="toggle-switch"><input type="checkbox" id="notifPlan" checked><span class="slider"></span></label></div>
+          <div class="toggle-item"><div class="toggle-info"><strong>Weekly Progress Report</strong><span>Summary email every Sunday</span></div><label class="toggle-switch"><input type="checkbox" id="notifReport" checked><span class="slider"></span></label></div>
+          <div class="toggle-item"><div class="toggle-info"><strong>New Challenges</strong><span>Notify about community challenges</span></div><label class="toggle-switch"><input type="checkbox" id="notifChallenge"><span class="slider"></span></label></div>
+          <div class="toggle-item"><div class="toggle-info"><strong>Marketing Emails</strong><span>Promotions and offers</span></div><label class="toggle-switch"><input type="checkbox" id="notifMarketing"><span class="slider"></span></label></div>
+        </div>
+      </section>
+
+      <!-- ── PRIVACY ── -->
+      <section class="settings-section" id="section-privacy">
+        <div class="section-header"><h2>Privacy Settings</h2><p>Control who sees your data and activity</p></div>
+        <div class="toggle-list">
+          <div class="toggle-item"><div class="toggle-info"><strong>Public Profile</strong><span>Other members can view your profile</span></div><label class="toggle-switch"><input type="checkbox" id="privProfile" checked><span class="slider"></span></label></div>
+          <div class="toggle-item"><div class="toggle-info"><strong>Show on Leaderboard</strong><span>Appear in public rankings</span></div><label class="toggle-switch"><input type="checkbox" id="privLeaderboard" checked><span class="slider"></span></label></div>
+          <div class="toggle-item"><div class="toggle-info"><strong>Share Workout Activity</strong><span>Workouts appear in community feed</span></div><label class="toggle-switch"><input type="checkbox" id="privWorkout" checked><span class="slider"></span></label></div>
+          <div class="toggle-item"><div class="toggle-info"><strong>Share Body Stats</strong><span>Weight and measurements visible to others</span></div><label class="toggle-switch"><input type="checkbox" id="privStats"><span class="slider"></span></label></div>
+          <div class="toggle-item"><div class="toggle-info"><strong>Show Streak to Others</strong><span>Your streak is visible on your profile</span></div><label class="toggle-switch"><input type="checkbox" id="privStreak" checked><span class="slider"></span></label></div>
+          <div class="toggle-item"><div class="toggle-info"><strong>Allow Direct Messages</strong><span>Members can message you directly</span></div><label class="toggle-switch"><input type="checkbox" id="privDM" checked><span class="slider"></span></label></div>
+        </div>
+        <div class="info-box">🔒 Your health data is always encrypted and never sold to third parties.</div>
+      </section>
+
+      <!-- ── APPEARANCE ── -->
+      <section class="settings-section" id="section-appearance">
+        <div class="section-header"><h2>Appearance</h2><p>Customise your IronForge experience</p></div>
+        <div class="form-grid">
+          <div class="form-group full">
+            <label>Accent Colour</label>
+            <div class="color-options" id="accentColors">
+              <div class="color-swatch" data-color="#ff4500" style="background:#ff4500" onclick="setAccent(this,'#ff4500')"><span>🔥 Fire</span></div>
+              <div class="color-swatch active" data-color="#3b82f6" style="background:#3b82f6" onclick="setAccent(this,'#3b82f6')"><span>💙 Blue</span></div>
+              <div class="color-swatch" data-color="#00c851" style="background:#00c851" onclick="setAccent(this,'#00c851')"><span>💚 Green</span></div>
+              <div class="color-swatch" data-color="#8b5cf6" style="background:#8b5cf6" onclick="setAccent(this,'#8b5cf6')"><span>💜 Purple</span></div>
+              <div class="color-swatch" data-color="#e91e8c" style="background:#e91e8c" onclick="setAccent(this,'#e91e8c')"><span>🩷 Pink</span></div>
+              <div class="color-swatch" data-color="#FFD700" style="background:#FFD700" onclick="setAccent(this,'#FFD700')"><span>✨ Gold</span></div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Dashboard Layout</label>
+            <select id="dashLayout" class="form-input form-select">
+              <option value="default" selected>Default (Recommended)</option>
+              <option value="compact">Compact</option>
+              <option value="wide">Wide</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Units System</label>
+            <select id="units" class="form-input form-select">
+              <option value="metric" selected>Metric (kg, km, cm)</option>
+              <option value="imperial">Imperial (lbs, miles, inches)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Week Starts On</label>
+            <select id="weekStart" class="form-input form-select">
+              <option value="monday" selected>Monday</option>
+              <option value="sunday">Sunday</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Language</label>
+            <select id="language" class="form-input form-select">
+              <option value="en" selected>English</option>
+              <option value="hi">Hindi</option>
+              <option value="ta">Tamil</option>
+            </select>
+          </div>
+        </div>
+        <div class="toggle-list" style="margin-top:1rem">
+          <div class="toggle-item"><div class="toggle-info"><strong>Animations</strong><span>Enable UI animations and transitions</span></div><label class="toggle-switch"><input type="checkbox" id="animations" checked><span class="slider"></span></label></div>
+          <div class="toggle-item"><div class="toggle-info"><strong>Sound Effects</strong><span>Play sounds on achievements and PRs</span></div><label class="toggle-switch"><input type="checkbox" id="sounds"><span class="slider"></span></label></div>
+        </div>
+      </section>
+
+      <!-- ── ACCOUNT ── -->
+      <section class="settings-section" id="section-account">
+        <div class="section-header"><h2>Account Management</h2><p>Manage your membership and data</p></div>
+        <div class="account-cards">
+          <div class="account-card">
+            <div class="ac-icon">⚡</div>
+            <div class="ac-body"><strong>Current Plan: Pro</strong><span>Renews on April 2, 2026 · ₹1,999/month</span></div>
+            <a href="membership-plans.html" class="btn-secondary small">Upgrade</a>
+          </div>
+          <div class="account-card">
+            <div class="ac-icon">📥</div>
+            <div class="ac-body"><strong>Export My Data</strong><span>Download all your workout, nutrition and progress data</span></div>
+            <button class="btn-secondary small" onclick="exportData()">Export</button>
+          </div>
+          <div class="account-card">
+            <div class="ac-icon">🔄</div>
+            <div class="ac-body"><strong>Reset All Progress</strong><span>Clear all logs, measurements and achievements</span></div>
+            <button class="btn-secondary small danger-btn" onclick="confirmReset()">Reset</button>
+          </div>
+          <div class="account-card danger-card">
+            <div class="ac-icon">⚠️</div>
+            <div class="ac-body"><strong>Delete Account</strong><span>Permanently remove your account and all data. This cannot be undone.</span></div>
+            <button class="btn-danger" onclick="confirmDelete()">Delete Account</button>
+          </div>
+        </div>
+        <div class="logout-section">
+          <button class="btn-logout" onclick="logout()">🚪 Log Out</button>
+          <span>Logged in as mohithhra15@gmail.com</span>
+        </div>
+      </section>
+
+    </div><!-- end settings-content -->
+  </div><!-- end settings-layout -->
+
+</main>
+
+<!-- CONFIRM MODAL -->
+<div class="modal-overlay" id="confirmOverlay" onclick="closeConfirm()">
+  <div class="confirm-modal" onclick="event.stopPropagation()">
+    <div class="confirm-icon" id="confirmIcon">⚠️</div>
+    <h3 id="confirmTitle">Are you sure?</h3>
+    <p id="confirmText">This action cannot be undone.</p>
+    <div class="confirm-btns">
+      <button class="btn-secondary" onclick="closeConfirm()">Cancel</button>
+      <button class="btn-danger" id="confirmOkBtn" onclick="confirmAction()">Confirm</button>
+    </div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<script src="settings-profile.js"></script>
+</body>
+</html>

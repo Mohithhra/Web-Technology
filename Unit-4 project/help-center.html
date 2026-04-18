@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IronForge | Help Center</title>
+<link rel="stylesheet" href="help-center.css">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- ===== SIDEBAR ===== -->
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-logo"><a href="index.html" class="logo">IRON<span>FORGE</span></a></div>
+  <nav class="sidebar-nav">
+    <div class="nav-section-label">MAIN</div>
+    <a href="dashboard.html" class="nav-item"><span class="nav-icon">📊</span><span class="nav-label">Dashboard</span></a>
+    <a href="activity-log.html" class="nav-item"><span class="nav-icon">📋</span><span class="nav-label">Activity Log</span></a>
+    <a href="workout-builder.html" class="nav-item"><span class="nav-icon">🏋️</span><span class="nav-label">Workout Builder</span></a>
+    <a href="exercise-library.html" class="nav-item"><span class="nav-icon">📚</span><span class="nav-label">Exercise Library</span></a>
+    <div class="nav-section-label">HEALTH</div>
+    <a href="nutrition-tracker.html" class="nav-item"><span class="nav-icon">🥗</span><span class="nav-label">Nutrition</span></a>
+    <a href="progress-chart.html" class="nav-item"><span class="nav-icon">📈</span><span class="nav-label">Progress</span></a>
+    <div class="nav-section-label">COMMUNITY</div>
+    <a href="community-feed.html" class="nav-item"><span class="nav-icon">👥</span><span class="nav-label">Community</span></a>
+    <a href="leaderboard.html" class="nav-item"><span class="nav-icon">🏆</span><span class="nav-label">Leaderboard</span></a>
+    <a href="achievement-badges.html" class="nav-item"><span class="nav-icon">🎖️</span><span class="nav-label">Achievements</span><span class="nav-badge">3</span></a>
+    <div class="nav-section-label">ACCOUNT</div>
+    <a href="settings-profile.html" class="nav-item"><span class="nav-icon">⚙️</span><span class="nav-label">Settings</span></a>
+    <a href="help-center.html" class="nav-item active"><span class="nav-icon">❓</span><span class="nav-label">Help</span></a>
+  </nav>
+  <div class="sidebar-plan">
+    <div class="plan-badge">⚡ PRO MEMBER</div>
+    <p>21 days remaining</p>
+    <a href="membership-plans.html" class="btn-renew">Renew Plan</a>
+  </div>
+</aside>
+
+<!-- MOBILE TOPBAR -->
+<div class="mobile-topbar">
+  <button class="hamburger-dash" onclick="toggleSidebar()">☰</button>
+  <span class="logo">IRON<span>FORGE</span></span>
+  <div class="topbar-avatar">M</div>
+</div>
+<div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleSidebar()"></div>
+
+<!-- ===== MAIN ===== -->
+<main class="main-content">
+
+  <header class="topbar">
+    <div class="topbar-left">
+      <h1>Help <span>Center</span></h1>
+      <p>Find answers, guides and support</p>
+    </div>
+    <div class="topbar-right">
+      <div class="avatar-wrap"><div class="avatar">M</div><div class="avatar-status"></div></div>
+    </div>
+  </header>
+
+  <!-- ===== SEARCH HERO ===== -->
+  <div class="search-hero">
+    <div class="search-hero-bg"></div>
+    <h2>How can we help you?</h2>
+    <p>Search our knowledge base or browse categories below</p>
+    <div class="search-bar-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="helpSearch" class="help-search" placeholder="Search for help articles…" oninput="liveSearch()">
+      <button class="search-clear" id="searchClear" onclick="clearSearch()" style="display:none">✕</button>
+    </div>
+    <div class="search-suggestions">
+      <span onclick="quickSearch('streak')">🔥 Streak</span>
+      <span onclick="quickSearch('password')">🔑 Password</span>
+      <span onclick="quickSearch('plan')">⚡ Plans</span>
+      <span onclick="quickSearch('nutrition')">🥗 Nutrition</span>
+      <span onclick="quickSearch('badges')">🎖️ Badges</span>
+    </div>
+  </div>
+
+  <!-- SEARCH RESULTS (hidden by default) -->
+  <div class="search-results-wrap" id="searchResultsWrap" style="display:none">
+    <div class="search-results-header" id="searchResultsHeader"></div>
+    <div class="search-results-list" id="searchResultsList"></div>
+  </div>
+
+  <!-- ===== QUICK ACTIONS ===== -->
+  <div class="quick-actions" id="mainContent">
+    <div class="qa-card" onclick="openTicket()">
+      <div class="qa-icon">💬</div>
+      <strong>Contact Support</strong>
+      <span>Chat with our team</span>
+    </div>
+    <div class="qa-card" onclick="window.location.href='settings-profile.html'">
+      <div class="qa-icon">⚙️</div>
+      <strong>Account Settings</strong>
+      <span>Manage your profile</span>
+    </div>
+    <div class="qa-card" onclick="window.location.href='membership-plans.html'">
+      <div class="qa-icon">⚡</div>
+      <strong>Upgrade Plan</strong>
+      <span>Unlock more features</span>
+    </div>
+    <div class="qa-card" onclick="switchToCategory('getting-started')">
+      <div class="qa-icon">🚀</div>
+      <strong>Getting Started</strong>
+      <span>New member guide</span>
+    </div>
+  </div>
+
+  <!-- ===== CATEGORY TABS ===== -->
+  <div class="help-cats" id="helpCats">
+    <button class="hcat active" data-cat="all" onclick="switchToCategory('all',this)">All Topics</button>
+    <button class="hcat" data-cat="getting-started" onclick="switchToCategory('getting-started',this)">🚀 Getting Started</button>
+    <button class="hcat" data-cat="workouts" onclick="switchToCategory('workouts',this)">🏋️ Workouts</button>
+    <button class="hcat" data-cat="nutrition" onclick="switchToCategory('nutrition',this)">🥗 Nutrition</button>
+    <button class="hcat" data-cat="membership" onclick="switchToCategory('membership',this)">⚡ Membership</button>
+    <button class="hcat" data-cat="account" onclick="switchToCategory('account',this)">👤 Account</button>
+    <button class="hcat" data-cat="community" onclick="switchToCategory('community',this)">👥 Community</button>
+    <button class="hcat" data-cat="technical" onclick="switchToCategory('technical',this)">🔧 Technical</button>
+  </div>
+
+  <!-- ===== FAQ ACCORDION ===== -->
+  <div class="faq-wrap" id="faqWrap"></div>
+
+  <!-- ===== CONTACT / TICKET ===== -->
+  <div class="contact-section">
+    <div class="contact-card">
+      <div class="contact-icon">💬</div>
+      <h3>Still need help?</h3>
+      <p>Our support team is available Mon–Sat, 9 AM to 7 PM IST. Typical response time: under 2 hours.</p>
+      <div class="contact-methods">
+        <div class="contact-method" onclick="openTicket()">
+          <span class="cm-icon">📧</span>
+          <div><strong>Email Support</strong><span>support@ironforge.in</span></div>
+        </div>
+        <div class="contact-method">
+          <span class="cm-icon">📞</span>
+          <div><strong>Phone</strong><span>+91 98765 00000</span></div>
+        </div>
+        <div class="contact-method">
+          <span class="cm-icon">📍</span>
+          <div><strong>Visit Us</strong><span>12 MG Road, Puducherry</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TICKET FORM -->
+    <div class="ticket-card" id="ticketCard">
+      <h3>Send a Message</h3>
+      <p>We'll get back to you within 2 hours.</p>
+      <div class="ticket-form">
+        <div class="form-group">
+          <label>Subject</label>
+          <select id="ticketSubject" class="form-input form-select">
+            <option value="">Select a topic…</option>
+            <option>Account & Login Issues</option>
+            <option>Billing & Membership</option>
+            <option>Workout & Exercise Questions</option>
+            <option>Nutrition Tracker Help</option>
+            <option>Bug Report</option>
+            <option>Feature Request</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Message</label>
+          <textarea id="ticketMessage" class="form-input form-textarea" rows="4" placeholder="Describe your issue in detail…"></textarea>
+        </div>
+        <div class="form-group">
+          <label>Priority</label>
+          <div class="priority-row">
+            <label class="priority-opt"><input type="radio" name="priority" value="low"> Low</label>
+            <label class="priority-opt"><input type="radio" name="priority" value="normal" checked> Normal</label>
+            <label class="priority-opt"><input type="radio" name="priority" value="urgent"> Urgent</label>
+          </div>
+        </div>
+        <button class="btn-submit" onclick="submitTicket()">📩 Send Message</button>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<!-- ARTICLE MODAL -->
+<div class="modal-overlay" id="articleModal" onclick="closeArticle()">
+  <div class="article-modal" onclick="event.stopPropagation()">
+    <button class="modal-close" onclick="closeArticle()">✕</button>
+    <div class="article-content" id="articleContent"></div>
+    <div class="article-footer">
+      <span>Was this helpful?</span>
+      <button class="helpful-btn" onclick="markHelpful(true)">👍 Yes</button>
+      <button class="helpful-btn" onclick="markHelpful(false)">👎 No</button>
+    </div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<script src="help-center.js"></script>
+</body>
+</html>

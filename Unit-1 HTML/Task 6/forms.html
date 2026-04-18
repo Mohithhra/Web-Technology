@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration Form</title>
+</head>
+<body> 
+   <h2>Student Registration</h2>
+<form>
+    <label>Full Name:</label><br>
+    <input type="text" placeholder="Enter your name" required><br><br>
+
+    <label>Email:</label><br>
+    <input type="email" placeholder="Enter your email" required><br><br>
+
+    <label>Age:</label><br>
+    <input type="number"min="17" max="30" required><br><br>
+
+    <label>Date of Birth:</label>
+    <input type="date" required><br><br>
+<button type="submit">Register</button>
+   
+</form>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Details</title>
+</head>
+<body> 
+   <h2>Student Details</h2>
+   <form>
+    <label>Gender:</label><br>
+    <input type="radio" name="gender" value="Male" required> Male
+    <input type="radio" name="gender" value="Female" required> Female<br><br>
+
+    <label>Languages known:</label><br>
+    <input type="checkbox" value="Tamil" required> Tamil
+    <input type="checkbox" value="English" required> English
+    <input type="checkbox" value="Hindi" required> Hindi<br><br>
+
+    <label>Course Applying For:</label>
+    <select required>
+        <option value="">---Select---</option>
+        <option>BE</option>
+        <option>BCA</option>
+        <option>B.Sc</option>
+        <option>B.com</option>
+    </select><br><br> 
+
+    <label>Address:</label>
+    <textarea rows="4" cols="30" required></textarea><br></br>
+
+    <input type="submit" value="Submit Form">
+    <input type="reset" value="Clear All">
+
+    
+   </form>
+</body>
+</html>

@@ -1,0 +1,246 @@
+/* ================= RESET ================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ================= GLOBAL ================= */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #000;
+    color: #f5f5f5;
+    font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+    text-align: center;
+    letter-spacing: 0.5px;          /* fixes congested letters */
+    line-height: 1.9;               /* airy reading */
+}
+
+/* ================= HEADER ================= */
+header {
+    background: linear-gradient(135deg, #ff1a1a, #8b0000);
+    padding: 22px 45px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.8);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    width: 62px;
+    margin-right: 14px;
+    border-radius: 50%;
+    background: white;
+    padding: 6px;
+}
+
+header h1 {
+    font-size: 34px;
+    letter-spacing: 3px;
+    font-weight: 800;
+}
+
+/* ================= NAV ================= */
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 10px 16px;
+    font-weight: 600;
+    font-size: 16px;
+    position: relative;
+}
+
+/* animated underline */
+nav a::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background: yellow;
+    left: 0;
+    bottom: -6px;
+    transition: width 0.3s;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+/* ================= SECTIONS ================= */
+section {
+    padding: 80px 20px;
+    animation: fadeUp 0.9s ease both;
+}
+
+section:nth-child(even) {
+    background: linear-gradient(to bottom, #111, #0a0a0a);
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(35px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ================= TEXT ================= */
+h1, h2, h3 {
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+h2 {
+    font-size: 28px;
+}
+
+p {
+    font-size: 18px;
+    max-width: 760px;
+    margin: 12px auto;
+    color: #ddd;
+}
+
+/* ================= GALLERY ================= */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 35px;
+    max-width: 1100px;
+    margin: auto;
+}
+
+.gallery figure {
+    transition: transform 0.3s;
+}
+
+.gallery figure:hover {
+    transform: translateY(-6px);
+}
+
+.gallery img {
+    width: 100%;
+    border-radius: 14px;
+    cursor: zoom-in;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.8);
+    transition: transform 0.35s, box-shadow 0.35s;
+}
+
+.gallery img:hover {
+    transform: scale(1.07);
+    box-shadow: 0 0 30px red;
+}
+
+.gallery figcaption {
+    margin-top: 10px;
+    font-size: 15px;
+    color: #bbb;
+}
+
+/* ================= LIGHTBOX (FULLSCREEN) ================= */
+.lightbox {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.97);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    cursor: zoom-out;
+}
+
+.lightbox img {
+    max-width: 92%;
+    max-height: 92%;
+    border-radius: 10px;
+    animation: zoom 0.45s ease;
+}
+
+.lightbox:target {
+    display: flex;
+}
+
+@keyframes zoom {
+    from {
+        transform: scale(0.6);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* ================= BUTTONS ================= */
+a[href*="register"], button {
+    background: linear-gradient(to right, red, darkred);
+    color: white;
+    padding: 14px 34px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 700;
+    letter-spacing: 1px;
+    display: inline-block;
+    margin-top: 25px;
+    box-shadow: 0 6px 18px rgba(255,0,0,0.4);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+a[href*="register"]:hover,
+button:hover {
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 10px 30px rgba(255,0,0,0.7);
+}
+
+/* ================= FOOTER ================= */
+footer {
+    background: linear-gradient(135deg, #b30000, #5c0000);
+    padding: 35px 20px;
+    margin-top: 60px;
+}
+
+footer h3 {
+    margin-bottom: 15px;
+}
+
+footer p {
+    font-size: 14px;
+    color: #eee;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 768px) {
+
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    nav {
+        margin-top: 12px;
+    }
+
+    h1 {
+        font-size: 26px;
+    }
+
+    p {
+        font-size: 16px;
+    }
+}

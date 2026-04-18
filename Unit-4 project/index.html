@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IronForge Gym | Forge Your Legend</title>
+<link rel="stylesheet" href="index.css">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<nav class="navbar" id="navbar">
+  <a href="index.html" class="nav-logo">IRON<span>FORGE</span></a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html" class="active">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="trainers.html">Trainers</a></li>
+    <li><a href="schedule.html">Schedule</a></li>
+    <li><a href="online-classes.html">Online Classes</a></li>
+    <li><a href="membership-plans.html">Plans</a></li>
+  </ul>
+  <div class="nav-cta">
+    <a href="login.html" class="btn-nav-login">Login</a>
+    <a href="join-modal.html" class="btn-nav-join">Join Now</a>
+  </div>
+  <button class="hamburger" onclick="toggleMenu()">☰</button>
+</nav>
+
+<!-- ===== HERO ===== -->
+<section class="hero" id="hero">
+  <div class="hero-bg">
+    <div class="hero-grid"></div>
+    <div class="hero-glow"></div>
+    <div class="hero-particles" id="particles"></div>
+  </div>
+  <div class="hero-content">
+    <div class="hero-badge">
+      <span class="badge-dot"></span>
+      NOW OPEN 24/7 — PUDUCHERRY'S #1 GYM
+    </div>
+    <h1 class="hero-title">
+      <span class="title-line" data-delay="0">FORGE</span>
+      <span class="title-line accent" data-delay="200">YOUR</span>
+      <span class="title-line" data-delay="400">LEGEND</span>
+    </h1>
+    <p class="hero-sub">No shortcuts. No excuses. Just iron, sweat, and the relentless pursuit of your best self. IronForge is where champions are made.</p>
+    <div class="hero-btns">
+      <a href="membership-plans.html" class="btn btn-primary">
+        <span>Start Your Journey</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <a href="about.html" class="btn btn-outline">Our Philosophy</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <span class="stat-num" data-target="500">0</span><span class="stat-plus">+</span>
+        <span class="stat-label">Active Members</span>
+      </div>
+      <div class="stat-sep"></div>
+      <div class="stat-item">
+        <span class="stat-num" data-target="20">0</span><span class="stat-plus">+</span>
+        <span class="stat-label">Elite Trainers</span>
+      </div>
+      <div class="stat-sep"></div>
+      <div class="stat-item">
+        <span class="stat-num" data-target="50">0</span><span class="stat-plus">+</span>
+        <span class="stat-label">Programs</span>
+      </div>
+      <div class="stat-sep"></div>
+      <div class="stat-item">
+        <span class="stat-num" data-target="8">0</span><span class="stat-plus">+</span>
+        <span class="stat-label">Years Strong</span>
+      </div>
+    </div>
+  </div>
+  <div class="hero-scroll-hint">
+    <span>SCROLL</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- ===== MARQUEE STRIP ===== -->
+<div class="marquee-strip">
+  <div class="marquee-track">
+    <span>💪 STRENGTH TRAINING</span><span>🔥 HIIT CLASSES</span>
+    <span>🥊 BOXING & MMA</span><span>🧘 YOGA & RECOVERY</span>
+    <span>🏃 CARDIO ZONE</span><span>🍎 NUTRITION PLANS</span>
+    <span>📱 ONLINE COACHING</span><span>🏆 COMPETITIONS</span>
+    <span>💪 STRENGTH TRAINING</span><span>🔥 HIIT CLASSES</span>
+    <span>🥊 BOXING & MMA</span><span>🧘 YOGA & RECOVERY</span>
+    <span>🏃 CARDIO ZONE</span><span>🍎 NUTRITION PLANS</span>
+    <span>📱 ONLINE COACHING</span><span>🏆 COMPETITIONS</span>
+  </div>
+</div>
+
+<!-- ===== WHY IRONFORGE ===== -->
+<section class="why-section" id="why">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-tag">WHY IRONFORGE</span>
+      <h2>Not Just A Gym.<br><span>A Movement.</span></h2>
+      <p>We combine cutting-edge training science with elite coaching to deliver results that last a lifetime.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card reveal">
+        <div class="why-icon">⚡</div>
+        <h3>Science-Backed Training</h3>
+        <p>Every program is built on proven exercise science. No guesswork — just systematic progress designed by certified experts.</p>
+      </div>
+      <div class="why-card reveal">
+        <div class="why-icon">🎯</div>
+        <h3>Personalised Programs</h3>
+        <p>Your body, your goals, your plan. We tailor every workout and nutrition strategy specifically to your needs.</p>
+      </div>
+      <div class="why-card reveal">
+        <div class="why-icon">🏆</div>
+        <h3>Elite Coaching Staff</h3>
+        <p>Train under nationally certified coaches with proven track records. Our trainers have coached champions.</p>
+      </div>
+      <div class="why-card reveal">
+        <div class="why-icon">📊</div>
+        <h3>Progress Tracking</h3>
+        <p>Monitor every rep, every meal, every milestone with our built-in dashboard and analytics system.</p>
+      </div>
+      <div class="why-card reveal">
+        <div class="why-icon">🤝</div>
+        <h3>Community Power</h3>
+        <p>Join a tribe of motivated individuals who push each other to be better every single day.</p>
+      </div>
+      <div class="why-card reveal">
+        <div class="why-icon">🔬</div>
+        <h3>Premium Equipment</h3>
+        <p>State-of-the-art machines, free weights, turf zones and recovery tech — everything you need under one roof.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SERVICES ===== -->
+<section class="services-section" id="services">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-tag">WHAT WE OFFER</span>
+      <h2>World-Class <span>Services</span></h2>
+      <p>Six powerful disciplines designed to transform every dimension of your fitness.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card reveal" data-color="#ff4500">
+        <div class="service-num">01</div>
+        <div class="service-icon">💪</div>
+        <h3>Strength & Powerlifting</h3>
+        <p>Build raw, functional strength with periodised programming and Olympic lifting platforms.</p>
+        <a href="schedule.html" class="service-link">View Schedule →</a>
+      </div>
+      <div class="service-card reveal" data-color="#FFD700">
+        <div class="service-num">02</div>
+        <div class="service-icon">🔥</div>
+        <h3>HIIT & Metabolic</h3>
+        <p>Torch fat and boost endurance with high-intensity interval training that gets results fast.</p>
+        <a href="schedule.html" class="service-link">View Schedule →</a>
+      </div>
+      <div class="service-card reveal" data-color="#00d4ff">
+        <div class="service-num">03</div>
+        <div class="service-icon">🥊</div>
+        <h3>Boxing & Combat</h3>
+        <p>Master self-defence, discipline and total-body conditioning through combat sports training.</p>
+        <a href="schedule.html" class="service-link">View Schedule →</a>
+      </div>
+      <div class="service-card reveal" data-color="#00ff88">
+        <div class="service-num">04</div>
+        <div class="service-icon">🧘</div>
+        <h3>Yoga & Recovery</h3>
+        <p>Restore, rebuild and recharge with expert-led mobility, yoga and recovery sessions.</p>
+        <a href="schedule.html" class="service-link">View Schedule →</a>
+      </div>
+      <div class="service-card reveal" data-color="#ff69b4">
+        <div class="service-num">05</div>
+        <div class="service-icon">🍎</div>
+        <h3>Nutrition Coaching</h3>
+        <p>Fuel your performance with custom meal plans and macro strategies built by registered dietitians.</p>
+        <a href="schedule.html" class="service-link">Learn More →</a>
+      </div>
+      <div class="service-card reveal" data-color="#a855f7">
+        <div class="service-num">06</div>
+        <div class="service-icon">📱</div>
+        <h3>Online Coaching</h3>
+        <p>Train anywhere, anytime with our app-based coaching platform and live virtual sessions.</p>
+        <a href="membership-plans.html" class="service-link">Get Started →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PLANS PREVIEW ===== -->
+<section class="plans-preview" id="plans">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-tag">MEMBERSHIP</span>
+      <h2>Choose Your <span>Path</span></h2>
+      <p>Flexible plans designed for every goal and budget. No hidden fees. Cancel anytime.</p>
+    </div>
+    <div class="plans-grid">
+      <div class="plan-card reveal">
+        <div class="plan-tier">STARTER</div>
+        <div class="plan-price">₹999<span>/mo</span></div>
+        <p class="plan-tagline">Perfect to get started</p>
+        <ul class="plan-perks">
+          <li class="yes">Gym Access (6AM–10PM)</li>
+          <li class="yes">Cardio Equipment</li>
+          <li class="yes">Locker Room</li>
+          <li class="no">Personal Trainer</li>
+          <li class="no">Nutrition Plan</li>
+          <li class="no">Group Classes</li>
+        </ul>
+        <a href="membership-plans.html" class="btn btn-outline" style="width:100%;text-align:center;">Choose Starter</a>
+      </div>
+      <div class="plan-card popular reveal">
+        <div class="popular-badge">⭐ MOST POPULAR</div>
+        <div class="plan-tier">PRO</div>
+        <div class="plan-price">₹1999<span>/mo</span></div>
+        <p class="plan-tagline">Best value for serious athletes</p>
+        <ul class="plan-perks">
+          <li class="yes">24/7 Gym Access</li>
+          <li class="yes">All Equipment</li>
+          <li class="yes">Premium Locker</li>
+          <li class="yes">Personal Trainer (2x/week)</li>
+          <li class="yes">Nutrition Plan</li>
+          <li class="no">All Group Classes</li>
+        </ul>
+        <a href="membership-plans.html" class="btn btn-primary" style="width:100%;text-align:center;">Choose Pro</a>
+      </div>
+      <div class="plan-card reveal">
+        <div class="plan-tier">ELITE</div>
+        <div class="plan-price">₹3499<span>/mo</span></div>
+        <p class="plan-tagline">The ultimate IronForge experience</p>
+        <ul class="plan-perks">
+          <li class="yes">24/7 VIP Access</li>
+          <li class="yes">All Equipment</li>
+          <li class="yes">VIP Locker Suite</li>
+          <li class="yes">Daily Personal Training</li>
+          <li class="yes">Custom Nutrition Plan</li>
+          <li class="yes">All Group Classes</li>
+        </ul>
+        <a href="membership-plans.html" class="btn btn-outline" style="width:100%;text-align:center;">Choose Elite</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TRAINERS PREVIEW ===== -->
+<section class="trainers-preview" id="trainers">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-tag">MEET THE TEAM</span>
+      <h2>Coached By <span>The Best</span></h2>
+      <p>Our trainers aren't just instructors — they're athletes, mentors and transformation specialists.</p>
+    </div>
+    <div class="trainers-grid">
+      <div class="trainer-card reveal">
+        <div class="trainer-img">👨‍🦱</div>
+        <div class="trainer-info">
+          <h3>Arjun Sharma</h3>
+          <p class="trainer-role">Strength & Conditioning</p>
+          <p class="trainer-exp">8 Yrs · NSCA Certified</p>
+          <div class="trainer-tags"><span>Powerlifting</span><span>HIIT</span><span>Sports Performance</span></div>
+        </div>
+      </div>
+      <div class="trainer-card reveal">
+        <div class="trainer-img">👩</div>
+        <div class="trainer-info">
+          <h3>Priya Nair</h3>
+          <p class="trainer-role">Yoga & Wellness</p>
+          <p class="trainer-exp">6 Yrs · RYT-500 Certified</p>
+          <div class="trainer-tags"><span>Yoga</span><span>Meditation</span><span>Mobility</span></div>
+        </div>
+      </div>
+      <div class="trainer-card reveal">
+        <div class="trainer-img">👨‍🦲</div>
+        <div class="trainer-info">
+          <h3>Rahul Verma</h3>
+          <p class="trainer-role">Boxing & MMA</p>
+          <p class="trainer-exp">10 Yrs · State Champion</p>
+          <div class="trainer-tags"><span>Boxing</span><span>MMA</span><span>Self Defence</span></div>
+        </div>
+      </div>
+      <div class="trainer-card reveal">
+        <div class="trainer-img">👩‍🦰</div>
+        <div class="trainer-info">
+          <h3>Sneha Kapoor</h3>
+          <p class="trainer-role">Nutrition & Diet</p>
+          <p class="trainer-exp">5 Yrs · Registered Dietitian</p>
+          <div class="trainer-tags"><span>Nutrition</span><span>Weight Loss</span><span>Meal Planning</span></div>
+        </div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:3rem;" class="reveal">
+      <a href="trainers.html" class="btn btn-outline">Meet All Trainers</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA BANNER ===== -->
+<section class="cta-section reveal">
+  <div class="cta-bg"></div>
+  <div class="cta-content">
+    <h2>READY TO <span>TRANSFORM?</span></h2>
+    <p>Join 500+ members who chose IronForge and never looked back. Your first week is on us.</p>
+    <div class="cta-btns">
+      <a href="join-modal.html" class="btn btn-accent">Start Free Trial</a>
+      <a href="membership-plans.html" class="btn btn-outline">View All Plans</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <span class="nav-logo">IRON<span>FORGE</span></span>
+      <p>Puducherry's premier fitness destination. Where ordinary people build extraordinary bodies.</p>
+      <div class="footer-socials">
+        <a href="#">📘</a><a href="#">📸</a><a href="#">🐦</a><a href="#">▶️</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Navigate</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="trainers.html">Trainers</a></li>
+        <li><a href="schedule.html">Schedule</a></li>
+        <li><a href="online-classes.html">Online Classes</a></li>
+        <li><a href="membership-plans.html">Plans</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Member</h4>
+      <ul>
+        <li><a href="login.html">Login</a></li>
+        <li><a href="signup.html">Sign Up</a></li>
+        <li><a href="dashboard.html">Dashboard</a></li>
+        <li><a href="activity-log.html">Activity Log</a></li>
+        <li><a href="progress-chart.html">Progress</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Support</h4>
+      <ul>
+        <li><a href="help-center.html">Help Center</a></li>
+        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+        <li><a href="settings-profile.html">Settings</a></li>
+        <li><a href="community-feed.html">Community</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 IronForge Gym, Puducherry. All rights reserved.</p>
+    <div class="footer-socials">
+      <a href="#">📘</a><a href="#">📸</a><a href="#">🐦</a><a href="#">▶️</a>
+    </div>
+  </div>
+</footer>
+
+<script src="index.js"></script>
+</body>
+</html>

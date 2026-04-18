@@ -1,0 +1,119 @@
+:root {
+  --primary: #ff4500;
+  --accent: #FFD700;
+  --bg: #1f1f1f;
+  --card-bg: #2a2a2a;
+  --light: #f5f5f5;
+  --input-bg: #333;
+  --transition: 0.4s ease-in-out;
+  --shadow: 0 15px 35px rgba(0,0,0,0.5);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Montserrat', sans-serif; }
+
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-x: hidden;
+  color: var(--light);
+  background: linear-gradient(270deg, #ff4500, #FFD700, #ff69b4, #00ffff, #8a2be2);
+  background-size: 1000% 1000%;
+  animation: gradientShift 15s ease infinite;
+  padding: 2rem 1rem;
+}
+
+a { text-decoration: none; color: var(--accent); }
+a:hover { text-decoration: underline; }
+
+.auth-container { width: 100%; max-width: 500px; padding: 2rem; position: relative; }
+
+.auth-card {
+  background: rgba(42, 42, 42, 0.85);
+  backdrop-filter: blur(10px);
+  padding: 3rem 2.5rem;
+  border-radius: 15px;
+  box-shadow: var(--shadow);
+  position: relative;
+  overflow: hidden;
+  animation: fadeIn 1s ease forwards;
+  opacity: 0;
+  border-top: 4px solid var(--primary);
+}
+
+.auth-card::before, .auth-card::after {
+  content: ""; position: absolute; width: 200%; height: 2px;
+  background: var(--primary); top: 0; left: -100%;
+  animation: slideLine 2s infinite linear;
+}
+.auth-card::after { top: auto; bottom: 0; animation-delay: 1s; }
+
+.auth-card h2 {
+  text-align: center; margin-bottom: 2rem; font-size: 2.2rem;
+  font-weight: 900; letter-spacing: 1px; color: var(--accent);
+  animation: fadeInDown 1s ease forwards; opacity: 0;
+}
+
+form { display: flex; flex-direction: column; }
+.input-group { margin-bottom: 1.5rem; display: flex; flex-direction: column; position: relative; }
+.input-group label { margin-bottom: 0.5rem; font-weight: 500; color: #ccc; transition: 0.3s; }
+.input-group input {
+  padding: 0.9rem 1rem; border-radius: 10px; border: none; outline: none;
+  background: var(--input-bg); color: var(--light); font-size: 1rem; transition: 0.3s;
+}
+.input-group input:focus { background: #444; }
+
+.password-wrapper { position: relative; display: flex; align-items: center; }
+.toggle-password {
+  position: absolute; right: 12px; cursor: pointer;
+  font-size: 1.2rem; color: #aaa; transition: color 0.3s ease;
+}
+.toggle-password:hover { color: var(--accent); }
+
+.password-strength { margin-top: 0.5rem; height: 6px; background: #555; border-radius: 4px; overflow: hidden; }
+.strength-bar { width: 0%; height: 100%; background: var(--primary); transition: width 0.3s; }
+.strength-text { font-size: 0.8rem; color: #aaa; margin-top: 0.2rem; }
+
+.btn {
+  padding: 1rem; border: none; border-radius: 10px; font-weight: 700;
+  cursor: pointer; background: var(--primary); color: #fff;
+  font-size: 1rem; transition: transform var(--transition), box-shadow var(--transition);
+}
+.btn:hover { transform: scale(1.05); box-shadow: 0 10px 25px rgba(255,69,0,0.6); }
+
+.social-btn { margin-top: 0.8rem; background: var(--accent); color: #000; font-weight: 700; }
+.social-btn:hover { opacity: 0.9; }
+
+.auth-links {
+  margin-top: 1rem; font-size: 0.9rem; text-align: center;
+  display: flex; justify-content: center; gap: 0.5rem; flex-wrap: wrap;
+}
+.divider {
+  text-align: center; margin: 1.5rem 0; position: relative; font-size: 0.9rem; color: #aaa;
+}
+.divider::before, .divider::after { content: ""; position: absolute; top: 50%; width: 40%; height: 1px; background: #555; }
+.divider::before { left: 0; } .divider::after { right: 0; }
+
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(-20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeInDown {
+  0% { opacity: 0; transform: translateY(-40px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+@keyframes slideLine {
+  0% { left: -100%; } 50% { left: 0; } 100% { left: 100%; }
+}
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@media(max-width:480px) {
+  .auth-card { padding: 2rem 1.5rem; }
+  .auth-card h2 { font-size: 1.8rem; }
+  .btn { font-size: 0.95rem; }
+}
